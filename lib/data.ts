@@ -8,11 +8,7 @@ function newestFirst<T extends { created_at: string }>(items: T[]) {
   return items.sort((a, b) => Date.parse(b.created_at) - Date.parse(a.created_at))
 }
 
-function mergeIncidents(databaseIncidents: Incident[]) {
-  return [...databaseIncidents, ...SOURCE_INCIDENTS].sort(
-    (a, b) => b.impact_score - a.impact_score,
-  )
-}
+
 
 function hashString(str: string): number {
   let hash = 0

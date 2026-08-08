@@ -1,6 +1,6 @@
 "use server"
 
-import { analyzeReport, SURABAYA_AREAS, computeImpactScore } from "@/lib/ai-analysis"
+import { analyzeReport, SURABAYA_AREAS } from "@/lib/ai-analysis"
 import { getComments, getReportById } from "@/lib/data"
 import { isWithinSurabaya } from "@/lib/surabaya-geo"
 import type { CategoryKey, Comment } from "@/lib/types"

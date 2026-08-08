@@ -6,7 +6,6 @@ import {
   Database,
   FileCheck2,
   MapPin,
-  Search,
   ShieldCheck,
 } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
@@ -14,7 +13,7 @@ import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { CategoryIcon } from "@/components/category-icon"
 import { DataFilterForm } from "@/components/data-filter-form"
-import { CATEGORIES, getCategory, normalizeCategoryFilter } from "@/lib/categories"
+import { getCategory, normalizeCategoryFilter } from "@/lib/categories"
 import { SOURCE_DATASET_METADATA, SOURCE_REPORTS } from "@/lib/source-data"
 
 export const metadata: Metadata = {
