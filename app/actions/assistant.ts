@@ -2,8 +2,6 @@
 
 import { getCategory } from "@/lib/categories"
 import { getIncidents, getPublicReports } from "@/lib/data"
-import type { Incident } from "@/lib/types"
-
 export interface AssistantAnswer {
   answer: string
   sources: { area: string; category: string; reportCount: number; severity: number }[]
