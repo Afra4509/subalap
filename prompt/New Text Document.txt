@@ -1,0 +1,443 @@
+Buatkan desain UI/UX website modern untuk sebuah platform Smart City bernama:
+
+SUBALAP AI
+
+"Suara Warga, Kecerdasan Kota"
+
+Fokus hanya pada frontend dan user interface. Jangan buat backend atau database.
+
+Product Concept
+
+SUBALAP AI adalah platform Smart City Kota Surabaya yang menggabungkan:
+
+- Social media laporan warga seperti X/Twitter
+
+- Interactive city map seperti Google Maps
+
+- AI urban intelligence dashboard
+
+- Real-time city monitoring
+
+Website harus terasa seperti produk startup teknologi masa depan, bukan website pemerintahan biasa.
+
+---
+
+Design Direction
+
+Style:
+
+- Futuristic Smart City
+
+- AI Dashboard
+
+- Modern SaaS Product
+
+- Premium technology feel
+
+Gunakan:
+
+- Dark mode sebagai tema utama
+
+- Glassmorphism card
+
+- Soft glow effect
+
+- Smooth animation
+
+- Clean typography
+
+- Data visualization style
+
+Inspirasi visual:
+
+- Tesla dashboard
+
+- Apple Vision Pro interface
+
+- Modern AI startup website
+
+- Smart city command center
+
+---
+
+Color Palette
+
+Primary:
+
+Dark Navy:
+
+#081B33
+
+Deep Background:
+
+#050B18
+
+Accent Cyan:
+
+#00D4FF
+
+Accent Green:
+
+#00E676
+
+Warning:
+
+#FFB020
+
+Danger:
+
+#FF4D4D
+
+Text:
+
+White dan soft gray
+
+Gunakan warna merah hanya untuk indikator bahaya seperti banjir atau masalah kota.
+
+---
+
+Website Structure
+
+Buat halaman berikut:
+
+1. Landing Page
+
+Hero section:
+
+Logo:
+
+SUBALAP AI
+
+Headline:
+
+"Suara Warga.
+
+Kecerdasan Kota."
+
+Subtitle:
+
+"Platform AI yang memahami kondisi Kota Surabaya secara real-time melalui laporan masyarakat."
+
+Button:
+
+- Lihat Kondisi Kota
+
+- Buat Laporan
+
+Hero visual:
+
+Tampilkan peta Surabaya futuristik dengan:
+
+- titik laporan bergerak
+
+- heatmap
+
+- AI monitoring effect
+
+Tambahkan statistik:
+
+Contoh:
+
+24
+
+Laporan aktif hari ini
+
+15
+
+Area terpantau
+
+95%
+
+Laporan terverifikasi
+
+---
+
+2. City Dashboard
+
+Buat dashboard utama seperti command center.
+
+Layout:
+
+Sidebar kiri:
+
+- Dashboard
+
+- Live Map
+
+- Feed Warga
+
+- Trending
+
+- AI Insight
+
+Main content:
+
+City Overview Cards
+
+Card:
+
+Banjir
+
+12 titik aktif
+
+Infrastruktur
+
+35 laporan
+
+Lingkungan
+
+18 laporan
+
+Transportasi
+
+21 laporan
+
+---
+
+3. Smart City Map Page
+
+Halaman peta interaktif.
+
+Gunakan:
+
+- Map interface besar
+
+- Floating filter
+
+- Modern map controls
+
+Marker:
+
+Banjir:
+
+red marker
+
+Jalan rusak:
+
+orange marker
+
+Sampah:
+
+yellow marker
+
+Saat marker diklik muncul popup card:
+
+Lokasi:
+
+Wonokromo
+
+Masalah:
+
+Banjir
+
+Severity:
+
+92/100
+
+Jumlah laporan:
+
+126
+
+---
+
+4. Citizen Feed Page
+
+Buat seperti X/Twitter tetapi khusus laporan kota.
+
+Layout:
+
+Center feed:
+
+Card laporan:
+
+Foto
+
+Lokasi
+
+Deskripsi:
+
+"Banjir mulai memasuki jalan utama."
+
+AI Analysis:
+
+Category:
+
+Flood
+
+Severity:
+
+87/100
+
+Verification:
+
+95%
+
+Interaction:
+
+- Support
+
+- Comment
+
+- Share
+
+Sidebar kanan:
+
+Trending Surabaya
+
+🔥 Trending:
+
+#BanjirWonokromo
+
+126 laporan
+
+#JalanRusakDarmo
+
+80 laporan
+
+---
+
+5. Create Report Page
+
+Buat form laporan warga.
+
+Tidak menggunakan login.
+
+Form:
+
+Nama
+
+Email
+
+Nomor WhatsApp optional
+
+Kategori masalah
+
+Deskripsi
+
+Upload foto
+
+Lokasi map picker
+
+Design:
+
+Simple, modern, friendly.
+
+Tambahkan AI preview:
+
+"AI akan membantu menganalisis laporan Anda."
+
+---
+
+6. AI Insight Page
+
+Buat halaman khusus AI analysis.
+
+Tampilkan:
+
+AI Summary:
+
+"Terjadi peningkatan laporan banjir di wilayah Wonokromo dalam 3 jam terakhir."
+
+Cards:
+
+Severity Trend
+
+Problem Distribution
+
+Area Risk Level
+
+Gunakan grafik modern.
+
+---
+
+7. Admin Dashboard Preview
+
+Buat tampilan dashboard pemerintah.
+
+Fokus:
+
+- monitoring masalah kota
+
+- statistik
+
+- AI recommendation
+
+Komponen:
+
+Priority Issues:
+
+1.
+
+Banjir Wonokromo
+
+Priority:
+
+High
+
+AI Recommendation:
+
+"Periksa sistem drainase karena terjadi peningkatan laporan 40%."
+
+---
+
+UX Requirements
+
+Pastikan:
+
+- Responsive desktop dan mobile
+
+- Navigasi mudah
+
+- Animasi halus
+
+- Tidak terlalu ramai
+
+- Fokus pada data visual
+
+- Card memiliki hierarchy yang jelas
+
+Gunakan:
+
+- rounded card
+
+- subtle shadow
+
+- smooth hover effect
+
+- modern icon
+
+---
+
+Component Requirements
+
+Buat reusable components:
+
+- Navbar
+
+- Sidebar
+
+- City Statistic Card
+
+- Report Card
+
+- Map Popup
+
+- Trending Card
+
+- AI Insight Card
+
+- Severity Badge
+
+- Upload Report Form
+
+---
+
+Overall Feeling
+
+Ketika user membuka website, mereka harus merasa:
+
+"Ini adalah pusat kecerdasan digital Kota Surabaya."
+
+Bukan aplikasi laporan biasa.
+
+Buat desain yang terlihat seperti produk startup AI yang siap dipresentasikan dalam kompetisi teknologi.

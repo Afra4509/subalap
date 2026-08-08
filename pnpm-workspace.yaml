@@ -1,0 +1,10 @@
+overrides:
+  hono: 4.12.27
+  postcss: 8.5.23
+  sharp: 0.35.0
+
+allowBuilds:
+  sharp: false
+
+minimumReleaseAgeExclude:
+  - postcss@8.5.23

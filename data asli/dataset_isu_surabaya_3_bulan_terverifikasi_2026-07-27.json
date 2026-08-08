@@ -1,0 +1,1767 @@
+{
+  "metadata": {
+    "title": "Dataset Gabungan Isu Kota Surabaya, 3 Bulan Terakhir",
+    "period_start": "2026-04-27",
+    "period_end": "2026-07-27",
+    "period_inclusive": true,
+    "timezone": "Asia/Jakarta (WIB)",
+    "generated_date": "2026-07-27",
+    "input_files": [
+      "isu_surabaya_2025_2026.json",
+      "isu_lingkungan_surabaya_2025_2026.json"
+    ],
+    "processing_summary": {
+      "input_rows_total": 48,
+      "raw_rows_in_period_before_deduplication": 34,
+      "duplicate_rows_removed": 14,
+      "unique_input_records_in_period": 20,
+      "canonical_records_in_output": 16,
+      "excluded_records_after_verification": 1,
+      "merged_input_records": {
+        "LPU-2026-001_to_LPU-2026-004": "Digabung menjadi satu episode pemadaman listrik dan gangguan traffic light pada 17–19 Juni 2026."
+      }
+    },
+    "content_counts": {
+      "by_category": {
+        "Banjir / Genangan": 1,
+        "Banjir / Genangan dan Cuaca Ekstrem": 1,
+        "Banjir / Pasang Laut": 1,
+        "Banjir Rob": 1,
+        "Kemacetan": 1,
+        "Kemacetan / Parkir": 1,
+        "Kesadaran Lingkungan": 1,
+        "Kualitas Udara": 1,
+        "Listrik / Traffic Light": 1,
+        "Pencemaran Sungai / Ancaman Ekosistem": 1,
+        "Pencemaran Sungai / Ekosistem": 1,
+        "Pencemaran Sungai / Kualitas Air": 1,
+        "Pencemaran Sungai / Limbah Industri": 1,
+        "Riset Lingkungan": 1,
+        "Sampah / Kebakaran TPA": 1,
+        "Sampah Plastik / Sungai": 1
+      },
+      "by_urgency": {
+        "Rendah": 3,
+        "Sedang": 6,
+        "Tinggi": 7
+      },
+      "by_verification_status": {
+        "partially_verified": 1,
+        "verified": 10,
+        "verified_as_report_not_incident": 1,
+        "verified_field_report_only": 2,
+        "verified_with_correction": 2
+      },
+      "location_points_total": 62,
+      "location_points_with_coordinates": 60,
+      "verified_or_official_boundary_points": 6
+    },
+    "method": [
+      "Menyaring tanggal kejadian atau publikasi pada 27 April sampai 27 Juli 2026, inklusif.",
+      "Menghapus duplikasi berdasarkan ID dan kesamaan isi.",
+      "Menggabungkan catatan yang merujuk episode yang sama.",
+      "Memeriksa ulang tanggal, lokasi, klasifikasi kejadian, dan klaim utama menggunakan sumber resmi atau media yang dapat ditelusuri.",
+      "Mengoreksi klaim yang tidak didukung dan memindahkan catatan yang tidak sesuai periode ke excluded_records.",
+      "Menambahkan koordinat. Koordinat nonresmi diberi label perkiraan dan radius akurasi."
+    ],
+    "coordinate_precision_legend": {
+      "titik_terverifikasi": "Koordinat lokasi spesifik dari sumber peta atau publikasi yang dapat ditelusuri.",
+      "titik_representatif_terverifikasi": "Titik spesifik terverifikasi yang hanya mewakili wilayah kejadian yang lebih luas.",
+      "perkiraan_centroid_berdasarkan_batas_resmi": "Titik pusat perkiraan yang diturunkan dari batas resmi, bukan lokasi kejadian presisi.",
+      "perkiraan_landmark": "Titik landmark diperkirakan, umumnya akurat dalam ratusan meter.",
+      "perkiraan_simpang": "Titik tengah persimpangan diperkirakan.",
+      "perkiraan_ruas": "Titik pada koridor jalan, bukan titik kejadian hasil GPS.",
+      "perkiraan_kawasan": "Titik pusat kawasan atau kelurahan.",
+      "perkiraan_kecamatan": "Titik pusat kecamatan dengan ketelitian rendah.",
+      "perkiraan_area_industri": "Titik area perusahaan atau kecamatan; bukan koordinat outlet.",
+      "perkiraan_segmen_sungai": "Titik representatif pada segmen sungai.",
+      "wilayah_umum": "Kejadian meliputi area luas dan tidak dapat direpresentasikan satu titik.",
+      "ambigu": "Nama lokasi belum cukup spesifik; koordinat sengaja dikosongkan."
+    },
+    "important_limitations": [
+      "Dataset ini bukan daftar resmi seluruh pengaduan warga atau seluruh kejadian di Surabaya.",
+      "Koordinat berlabel perkiraan tidak boleh dipakai sebagai bukti lokasi hukum, audit lapangan, atau penindakan.",
+      "Temuan komunitas mengenai efluen industri dicatat sebagai laporan lapangan, bukan putusan pelanggaran.",
+      "Jumlah titik banjir dapat berubah menurut waktu pembaruan petugas.",
+      "URL sumber disimpan agar setiap klaim dapat diaudit ulang."
+    ]
+  },
+  "data": [
+    {
+      "id": "SBY-2026-0427-001",
+      "input_ids": [
+        "ENV-2026-001"
+      ],
+      "event_type": "insiden",
+      "category": "Banjir / Genangan",
+      "title": "Genangan meluas setelah hujan deras pada 22 Juni 2026",
+      "date_start": "2026-06-22",
+      "date_end": "2026-06-22",
+      "time_local": "mulai sekitar 05:00 WIB",
+      "location_summary": "Sejumlah ruas di Surabaya barat, pusat, selatan, dan timur",
+      "location_points": [
+        {
+          "name": "Simo Kalangan",
+          "address": "Kawasan Simo Kalangan, Surabaya",
+          "latitude": -7.2743,
+          "longitude": 112.7061,
+          "geojson": {
+            "type": "Point",
+            "coordinates": [
+              112.7061,
+              -7.2743
+            ]
+          },
+          "coordinate_precision": "perkiraan_ruas",
+          "estimated_accuracy_m": 800,
+          "coordinate_source": "geocoding manual berbasis nama kawasan",
+          "coordinate_note": "Bukan titik genangan hasil GPS lapangan."
+        },
+        {
+          "name": "Bawah Tol Banyu Urip",
+          "address": "Sekitar ruas Banyu Urip di bawah jalan tol",
+          "latitude": -7.282,
+          "longitude": 112.708,
+          "geojson": {
+            "type": "Point",
+            "coordinates": [
+              112.708,
+              -7.282
+            ]
+          },
+          "coordinate_precision": "perkiraan_ruas",
+          "estimated_accuracy_m": 900,
+          "coordinate_source": "geocoding manual berbasis nama ruas",
+          "coordinate_note": "Posisi mewakili koridor, bukan titik genangan presisi."
+        },
+        {
+          "name": "Kali Sumo / Ngagel Jaya",
+          "address": "Koridor Ngagel Jaya, Surabaya",
+          "latitude": -7.2904,
+          "longitude": 112.7454,
+          "geojson": {
+            "type": "Point",
+            "coordinates": [
+              112.7454,
+              -7.2904
+            ]
+          },
+          "coordinate_precision": "perkiraan_ruas",
+          "estimated_accuracy_m": 900,
+          "coordinate_source": "geocoding manual berbasis nama ruas",
+          "coordinate_note": null
+        },
+        {
+          "name": "Keputih",
+          "address": "Kelurahan Keputih, Surabaya",
+          "latitude": -7.2945,
+          "longitude": 112.791,
+          "geojson": {
+            "type": "Point",
+            "coordinates": [
+              112.791,
+              -7.2945
+            ]
+          },
+          "coordinate_precision": "perkiraan_kelurahan",
+          "estimated_accuracy_m": 1500,
+          "coordinate_source": "geocoding manual berbasis pusat kawasan",
+          "coordinate_note": null
+        },
+        {
+          "name": "Jalan Lidah Wetan",
+          "address": "Jalan Lidah Wetan, Surabaya",
+          "latitude": -7.31,
+          "longitude": 112.6767,
+          "geojson": {
+            "type": "Point",
+            "coordinates": [
+              112.6767,
+              -7.31
+            ]
+          },
+          "coordinate_precision": "perkiraan_ruas",
+          "estimated_accuracy_m": 1000,
+          "coordinate_source": "geocoding manual berbasis nama ruas",
+          "coordinate_note": null
+        },
+        {
+          "name": "Jalan Mayjend Jonosewojo",
+          "address": "Koridor Jalan Mayjend Jonosewojo, Surabaya",
+          "latitude": -7.2887,
+          "longitude": 112.6769,
+          "geojson": {
+            "type": "Point",
+            "coordinates": [
+              112.6769,
+              -7.2887
+            ]
+          },
+          "coordinate_precision": "perkiraan_ruas",
+          "estimated_accuracy_m": 1000,
+          "coordinate_source": "geocoding manual berbasis nama ruas",
+          "coordinate_note": null
+        },
+        {
+          "name": "Jalan Bung Tomo / Ngagel",
+          "address": "Koridor Jalan Bung Tomo, Ngagel",
+          "latitude": -7.299,
+          "longitude": 112.7428,
+          "geojson": {
+            "type": "Point",
+            "coordinates": [
+              112.7428,
+              -7.299
+            ]
+          },
+          "coordinate_precision": "perkiraan_ruas",
+          "estimated_accuracy_m": 800,
+          "coordinate_source": "geocoding manual berbasis nama ruas",
+          "coordinate_note": null
+        },
+        {
+          "name": "Semampir",
+          "address": "Nama lokasi Semampir perlu dikonfirmasi karena dapat merujuk lebih dari satu kawasan.",
+          "latitude": null,
+          "longitude": null,
+          "geojson": null,
+          "coordinate_precision": "ambigu",
+          "estimated_accuracy_m": null,
+          "coordinate_source": null,
+          "coordinate_note": "Koordinat sengaja tidak diisi untuk mencegah salah titik."
+        },
+        {
+          "name": "Barata Jaya / Ngagel",
+          "address": "Kawasan Barata Jaya dan Ngagel",
+          "latitude": -7.3002,
+          "longitude": 112.7538,
+          "geojson": {
+            "type": "Point",
+            "coordinates": [
+              112.7538,
+              -7.3002
+            ]
+          },
+          "coordinate_precision": "perkiraan_kawasan",
+          "estimated_accuracy_m": 1200,
+          "coordinate_source": "geocoding manual berbasis pusat kawasan",
+          "coordinate_note": null
+        }
+      ],
+      "description": "Hujan deras sejak subuh memicu genangan pada banyak ruas. Laporan media dan BPBD menunjukkan jumlah titik dapat berubah sesuai waktu pembaruan. Kawasan Simo menerima limpasan dari arah Dukuh Pakis dan HR Muhammad.",
+      "urgency": "Tinggi",
+      "verification": {
+        "status": "verified",
+        "confidence": "tinggi",
+        "notes": "Lokasi dan kejadian dikonfirmasi oleh Suara Surabaya serta rekap BPBD. Koordinat ruas merupakan perkiraan, bukan hasil pengukuran petugas."
+      },
+      "sources": [
+        {
+          "publisher": "Suara Surabaya",
+          "title": "Surabaya Banjir Senin Pagi, Pemkot Optimalkan Rumah Pompa dan Saluran",
+          "url": "https://www.suarasurabaya.net/kelanakota/2026/surabaya-banjir-senin-pagi-pemkot-optimalkan-rumah-pompa-dan-saluran/",
+          "published_date": "2026-06-22",
+          "source_type": "media"
+        },
+        {
+          "publisher": "Suara Surabaya",
+          "title": "BPBD Surabaya: Banjir Senin 21 Titik, Selasa 16 Titik",
+          "url": "https://www.suarasurabaya.net/kelanakota/2026/bpbd-surabaya-banjir-senin-21-titik-selasa-16-titik/",
+          "published_date": "2026-06-23",
+          "source_type": "media"
+        }
+      ]
+    },
+    {
+      "id": "SBY-2026-0427-002",
+      "input_ids": [
+        "ENV-2026-002"
+      ],
+      "event_type": "insiden",
+      "category": "Banjir / Genangan dan Cuaca Ekstrem",
+      "title": "BPBD mencatat 16 titik genangan, pohon tumbang, dan kerusakan atap",
+      "date_start": "2026-06-23",
+      "date_end": "2026-06-23",
+      "time_local": "dini hari; empat lokasi masih tergenang pada 11:00 WIB",
+      "location_summary": "Sedikitnya 16 titik di berbagai kecamatan Surabaya",
+      "location_points": [
+        {
+          "name": "RSIA / Jalan Raya Kendangsari",
+          "address": "Jalan Raya Kendangsari, Surabaya",
+          "latitude": -7.324,
+          "longitude": 112.754,
+          "geojson": {
+            "type": "Point",
+            "coordinates": [
+              112.754,
+              -7.324
+            ]
+          },
+          "coordinate_precision": "perkiraan_ruas",
+          "estimated_accuracy_m": 700,
+          "coordinate_source": "geocoding manual",
+          "coordinate_note": null
+        },
+        {
+          "name": "Wisma Tengger Kandangan",
+          "address": "Kawasan Wisma Tengger, Kandangan",
+          "latitude": -7.251,
+          "longitude": 112.677,
+          "geojson": {
+            "type": "Point",
+            "coordinates": [
+              112.677,
+              -7.251
+            ]
+          },
+          "coordinate_precision": "perkiraan_kawasan",
+          "estimated_accuracy_m": 1000,
+          "coordinate_source": "geocoding manual",
+          "coordinate_note": null
+        },
+        {
+          "name": "Nginden Jangkungan / Nginden Intan Timur",
+          "address": "Kawasan Nginden Jangkungan dan Nginden Intan Timur",
+          "latitude": -7.306,
+          "longitude": 112.77,
+          "geojson": {
+            "type": "Point",
+            "coordinates": [
+              112.77,
+              -7.306
+            ]
+          },
+          "coordinate_precision": "perkiraan_ruas",
+          "estimated_accuracy_m": 800,
+          "coordinate_source": "geocoding manual",
+          "coordinate_note": null
+        },
+        {
+          "name": "Jalan Bung Tomo",
+          "address": "Koridor Jalan Bung Tomo, Surabaya",
+          "latitude": -7.299,
+          "longitude": 112.7428,
+          "geojson": {
+            "type": "Point",
+            "coordinates": [
+              112.7428,
+              -7.299
+            ]
+          },
+          "coordinate_precision": "perkiraan_ruas",
+          "estimated_accuracy_m": 800,
+          "coordinate_source": "geocoding manual",
+          "coordinate_note": null
+        },
+        {
+          "name": "Bratang Binangun",
+          "address": "Kawasan Bratang Binangun",
+          "latitude": -7.301,
+          "longitude": 112.758,
+          "geojson": {
+            "type": "Point",
+            "coordinates": [
+              112.758,
+              -7.301
+            ]
+          },
+          "coordinate_precision": "perkiraan_kawasan",
+          "estimated_accuracy_m": 900,
+          "coordinate_source": "geocoding manual",
+          "coordinate_note": null
+        },
+        {
+          "name": "Simo Hilir Raya",
+          "address": "Jalan Simo Hilir Raya",
+          "latitude": -7.2725,
+          "longitude": 112.7045,
+          "geojson": {
+            "type": "Point",
+            "coordinates": [
+              112.7045,
+              -7.2725
+            ]
+          },
+          "coordinate_precision": "perkiraan_ruas",
+          "estimated_accuracy_m": 700,
+          "coordinate_source": "geocoding manual",
+          "coordinate_note": null
+        },
+        {
+          "name": "Tanjungsari",
+          "address": "Kawasan Tanjungsari, Surabaya",
+          "latitude": -7.2685,
+          "longitude": 112.683,
+          "geojson": {
+            "type": "Point",
+            "coordinates": [
+              112.683,
+              -7.2685
+            ]
+          },
+          "coordinate_precision": "perkiraan_kawasan",
+          "estimated_accuracy_m": 1200,
+          "coordinate_source": "geocoding manual",
+          "coordinate_note": null
+        },
+        {
+          "name": "Jalan Imam Bonjol, Dr. Soetomo",
+          "address": "Jalan Imam Bonjol, Kelurahan Dr. Soetomo",
+          "latitude": -7.2817,
+          "longitude": 112.7375,
+          "geojson": {
+            "type": "Point",
+            "coordinates": [
+              112.7375,
+              -7.2817
+            ]
+          },
+          "coordinate_precision": "perkiraan_ruas",
+          "estimated_accuracy_m": 600,
+          "coordinate_source": "geocoding manual",
+          "coordinate_note": null
+        },
+        {
+          "name": "Bendul Merisi Selatan",
+          "address": "Jalan Bendul Merisi Selatan",
+          "latitude": -7.3235,
+          "longitude": 112.7415,
+          "geojson": {
+            "type": "Point",
+            "coordinates": [
+              112.7415,
+              -7.3235
+            ]
+          },
+          "coordinate_precision": "perkiraan_ruas",
+          "estimated_accuracy_m": 800,
+          "coordinate_source": "geocoding manual",
+          "coordinate_note": null
+        },
+        {
+          "name": "Ngagel Madya",
+          "address": "Jalan Ngagel Madya",
+          "latitude": -7.2935,
+          "longitude": 112.746,
+          "geojson": {
+            "type": "Point",
+            "coordinates": [
+              112.746,
+              -7.2935
+            ]
+          },
+          "coordinate_precision": "perkiraan_ruas",
+          "estimated_accuracy_m": 700,
+          "coordinate_source": "geocoding manual",
+          "coordinate_note": null
+        },
+        {
+          "name": "Taman Panjang Jiwo Permai",
+          "address": "Jalan Taman Panjang Jiwo Permai",
+          "latitude": -7.32,
+          "longitude": 112.761,
+          "geojson": {
+            "type": "Point",
+            "coordinates": [
+              112.761,
+              -7.32
+            ]
+          },
+          "coordinate_precision": "perkiraan_ruas",
+          "estimated_accuracy_m": 700,
+          "coordinate_source": "geocoding manual",
+          "coordinate_note": null
+        },
+        {
+          "name": "Menur / Manyar Rejo",
+          "address": "Kawasan Menur dan Manyar Rejo",
+          "latitude": -7.2875,
+          "longitude": 112.762,
+          "geojson": {
+            "type": "Point",
+            "coordinates": [
+              112.762,
+              -7.2875
+            ]
+          },
+          "coordinate_precision": "perkiraan_kawasan",
+          "estimated_accuracy_m": 1000,
+          "coordinate_source": "geocoding manual",
+          "coordinate_note": null
+        },
+        {
+          "name": "Keputih Tegal",
+          "address": "Kawasan Keputih Tegal",
+          "latitude": -7.2945,
+          "longitude": 112.793,
+          "geojson": {
+            "type": "Point",
+            "coordinates": [
+              112.793,
+              -7.2945
+            ]
+          },
+          "coordinate_precision": "perkiraan_ruas",
+          "estimated_accuracy_m": 900,
+          "coordinate_source": "geocoding manual",
+          "coordinate_note": null
+        },
+        {
+          "name": "Simo Kalangan",
+          "address": "Kawasan Simo Kalangan",
+          "latitude": -7.2743,
+          "longitude": 112.7061,
+          "geojson": {
+            "type": "Point",
+            "coordinates": [
+              112.7061,
+              -7.2743
+            ]
+          },
+          "coordinate_precision": "perkiraan_ruas",
+          "estimated_accuracy_m": 800,
+          "coordinate_source": "geocoding manual",
+          "coordinate_note": null
+        },
+        {
+          "name": "Ngagel Kebonsari",
+          "address": "Kawasan Ngagel Kebonsari",
+          "latitude": -7.305,
+          "longitude": 112.746,
+          "geojson": {
+            "type": "Point",
+            "coordinates": [
+              112.746,
+              -7.305
+            ]
+          },
+          "coordinate_precision": "perkiraan_ruas",
+          "estimated_accuracy_m": 800,
+          "coordinate_source": "geocoding manual",
+          "coordinate_note": null
+        },
+        {
+          "name": "Jalan Raya Pandugo",
+          "address": "Jalan Raya Pandugo",
+          "latitude": -7.327,
+          "longitude": 112.787,
+          "geojson": {
+            "type": "Point",
+            "coordinates": [
+              112.787,
+              -7.327
+            ]
+          },
+          "coordinate_precision": "perkiraan_ruas",
+          "estimated_accuracy_m": 800,
+          "coordinate_source": "geocoding manual",
+          "coordinate_note": null
+        }
+      ],
+      "description": "BPBD Surabaya melaporkan 16 titik genangan dengan ketinggian sekitar 10 sampai 60 sentimeter. Dua belas titik telah surut pada pembaruan pukul 11.00 WIB. Cuaca ekstrem juga menyebabkan empat pohon tumbang dan satu laporan kerusakan atap.",
+      "urgency": "Tinggi",
+      "verification": {
+        "status": "verified",
+        "confidence": "tinggi",
+        "notes": "Jumlah 16 titik dan empat lokasi yang belum surut didukung laporan yang mengutip BPBD. Daftar lokasi dari dua file dilengkapi Jalan Raya Pandugo yang muncul dalam laporan terverifikasi."
+      },
+      "sources": [
+        {
+          "publisher": "Akurat Jatim",
+          "title": "Surabaya Dikepung Banjir di 16 Titik",
+          "url": "https://jatim.akurat.co/news/867813/surabaya-dikepung-banjir-di-16-titik",
+          "published_date": "2026-06-23",
+          "source_type": "media"
+        },
+        {
+          "publisher": "Suara Surabaya",
+          "title": "BPBD Surabaya: Banjir Senin 21 Titik, Selasa 16 Titik",
+          "url": "https://www.suarasurabaya.net/kelanakota/2026/bpbd-surabaya-banjir-senin-21-titik-selasa-16-titik/",
+          "published_date": "2026-06-23",
+          "source_type": "media"
+        }
+      ]
+    },
+    {
+      "id": "SBY-2026-0427-003",
+      "input_ids": [
+        "ENV-2026-003"
+      ],
+      "event_type": "peringatan_dini",
+      "category": "Banjir Rob",
+      "title": "Peringatan potensi banjir rob di pesisir timur Surabaya",
+      "date_start": "2026-06-13",
+      "date_end": "2026-06-17",
+      "time_local": "mengikuti waktu pasang harian",
+      "location_summary": "Pesisir timur Surabaya, kawasan pelabuhan, dan muara",
+      "location_points": [
+        {
+          "name": "Pelabuhan Tanjung Perak",
+          "address": "Pelabuhan Tanjung Perak, Surabaya",
+          "latitude": -7.19861,
+          "longitude": 112.72528,
+          "geojson": {
+            "type": "Point",
+            "coordinates": [
+              112.72528,
+              -7.19861
+            ]
+          },
+          "coordinate_precision": "titik_representatif_terverifikasi",
+          "estimated_accuracy_m": 100,
+          "coordinate_source": "Mapcarta / OpenStreetMap",
+          "coordinate_note": "Titik ini mewakili kawasan pesisir dan pelabuhan, bukan seluruh area potensi rob."
+        }
+      ],
+      "description": "Peringatan pasang laut tinggi berkaitan dengan fase bulan baru. Rentang 13 sampai 17 Juni dipakai untuk kawasan pesisir timur Surabaya berdasarkan publikasi yang merujuk informasi BMKG. Dampak aktual dapat berbeda menurut elevasi, tanggul, muara, dan waktu pasang.",
+      "urgency": "Sedang",
+      "verification": {
+        "status": "verified_with_correction",
+        "confidence": "tinggi",
+        "notes": "File awal mencantumkan 12 sampai 18 Juni dan wilayah barat serta timur. Dataset akhir memakai rentang dan wilayah yang lebih konservatif, yaitu 13 sampai 17 Juni untuk pesisir timur Surabaya dan sekitarnya."
+      },
+      "sources": [
+        {
+          "publisher": "BMKG Maritim",
+          "title": "Informasi Pasang Surut",
+          "url": "https://maritim.bmkg.go.id/cuaca/pasut",
+          "published_date": null,
+          "source_type": "official"
+        },
+        {
+          "publisher": "Kompas.com",
+          "title": "Wilayah yang Berpotensi Banjir Rob Sepekan ke Depan",
+          "url": "https://amp.kompas.com/tren/read/2026/06/08/143000965/21-wilayah-yang-berpotensi-banjir-rob-sepekan-ke-depan-akibat-super-new",
+          "published_date": "2026-06-08",
+          "source_type": "media"
+        }
+      ]
+    },
+    {
+      "id": "SBY-2026-0427-004",
+      "input_ids": [
+        "ENV-2026-005"
+      ],
+      "event_type": "peringatan_dini",
+      "category": "Banjir / Pasang Laut",
+      "title": "Peringatan kombinasi hujan lebat dan pasang laut akhir Juni",
+      "date_start": "2026-06-28",
+      "date_end": "2026-06-30",
+      "time_local": "mengikuti waktu hujan dan puncak pasang",
+      "location_summary": "Wilayah pesisir, muara, dan kawasan drainase yang terpengaruh backwater",
+      "location_points": [
+        {
+          "name": "Pelabuhan Tanjung Perak",
+          "address": "Pelabuhan Tanjung Perak, Surabaya",
+          "latitude": -7.19861,
+          "longitude": 112.72528,
+          "geojson": {
+            "type": "Point",
+            "coordinates": [
+              112.72528,
+              -7.19861
+            ]
+          },
+          "coordinate_precision": "titik_representatif_terverifikasi",
+          "estimated_accuracy_m": 100,
+          "coordinate_source": "Mapcarta / OpenStreetMap",
+          "coordinate_note": "Titik representatif untuk pemantauan pasang laut."
+        },
+        {
+          "name": "Muara dan saluran Kota Surabaya",
+          "address": "Muara dan saluran yang terhubung ke laut",
+          "latitude": null,
+          "longitude": null,
+          "geojson": null,
+          "coordinate_precision": "wilayah_umum",
+          "estimated_accuracy_m": null,
+          "coordinate_source": null,
+          "coordinate_note": "Tidak ada satu koordinat yang mewakili seluruh jaringan drainase."
+        }
+      ],
+      "description": "Risiko genangan meningkat ketika hujan lebat bertepatan dengan pasang laut, sehingga aliran drainase ke laut melambat atau mengalami backwater. Data ini merupakan peringatan risiko, bukan bukti bahwa seluruh lokasi tergenang.",
+      "urgency": "Sedang",
+      "verification": {
+        "status": "verified",
+        "confidence": "tinggi",
+        "notes": "Peringatan dan mekanisme risiko didukung laporan yang mengutip BPBD dan BMKG."
+      },
+      "sources": [
+        {
+          "publisher": "Suara Surabaya",
+          "title": "Surabaya Waspada Hujan Lebat dan Air Laut Pasang di Akhir Juni 2026",
+          "url": "https://www.suarasurabaya.net/kelanakota/2026/surabaya-waspada-hujan-lebat-dan-air-laut-pasang-di-akhir-juni-2026/",
+          "published_date": "2026-06-24",
+          "source_type": "media"
+        }
+      ]
+    },
+    {
+      "id": "SBY-2026-0427-005",
+      "input_ids": [
+        "ENV-2026-006"
+      ],
+      "event_type": "temuan_lapangan",
+      "category": "Pencemaran Sungai / Ekosistem",
+      "title": "Ekspedisi Ngintir memetakan tekanan ekologis Kali Surabaya",
+      "date_start": "2026-05-30",
+      "date_end": "2026-06-05",
+      "time_local": null,
+      "location_summary": "Pintu Air Mlirip, Mojokerto hingga segmen Wringinanom, Gresik; rangkaian ditutup di Grahadi",
+      "location_points": [
+        {
+          "name": "Pintu Air Mlirip",
+          "address": "Pintu Air Mlirip, Mojokerto",
+          "latitude": -7.443,
+          "longitude": 112.459,
+          "geojson": {
+            "type": "Point",
+            "coordinates": [
+              112.459,
+              -7.443
+            ]
+          },
+          "coordinate_precision": "perkiraan_lokasi",
+          "estimated_accuracy_m": 1500,
+          "coordinate_source": "geocoding manual berbasis nama lokasi",
+          "coordinate_note": null
+        },
+        {
+          "name": "Wringinanom",
+          "address": "Kecamatan Wringinanom, Gresik",
+          "latitude": -7.4,
+          "longitude": 112.593,
+          "geojson": {
+            "type": "Point",
+            "coordinates": [
+              112.593,
+              -7.4
+            ]
+          },
+          "coordinate_precision": "perkiraan_kecamatan",
+          "estimated_accuracy_m": 3000,
+          "coordinate_source": "geocoding manual berbasis pusat kecamatan",
+          "coordinate_note": null
+        },
+        {
+          "name": "Gedung Negara Grahadi",
+          "address": "Jalan Gubernur Suryo, Surabaya",
+          "latitude": -7.2637,
+          "longitude": 112.742,
+          "geojson": {
+            "type": "Point",
+            "coordinates": [
+              112.742,
+              -7.2637
+            ]
+          },
+          "coordinate_precision": "perkiraan_landmark",
+          "estimated_accuracy_m": 300,
+          "coordinate_source": "geocoding manual berbasis landmark",
+          "coordinate_note": null
+        }
+      ],
+      "description": "Komunitas lingkungan menyusuri Kali Surabaya untuk memetakan sampah plastik, perubahan sempadan, sumber pencemaran, mikroplastik, serta kondisi ikan lokal. Dataset awal yang menyebut rute sampai Karangpilang dan angka 247 bangunan tidak dipertahankan karena belum ditemukan dukungan yang cukup kuat untuk rangkaian 2026 pada sumber yang diperiksa.",
+      "urgency": "Tinggi",
+      "verification": {
+        "status": "partially_verified",
+        "confidence": "sedang",
+        "notes": "Kegiatan dan rute awal terverifikasi dari beberapa laporan. Temuan kuantitatif yang tidak konsisten antarberita tidak dimasukkan."
+      },
+      "sources": [
+        {
+          "publisher": "Titik Terang",
+          "title": "Ngintir Kali, Spirit Pemulihan Kali Brantas untuk Kembalinya Habitat Ikan Endemik",
+          "url": "https://titikterang.co.id/ngintir-kali-spirit-pemulihan-kali-brantas-untuk-kembalinya-habitat-ikan-endemik/",
+          "published_date": "2026-05-29",
+          "source_type": "community_media"
+        },
+        {
+          "publisher": "TIMES Indonesia",
+          "title": "Ekspedisi Ngintir Jelajahi Tekanan Ekologis Kali Surabaya",
+          "url": "https://timesindonesia.co.id/peristiwa-daerah/592665/ekspedisi-ngintir-jelajahi-tekanan-ekologis-kali-surabaya-spesies-ikan-lokal-terancam-punah",
+          "published_date": "2026-05-30",
+          "source_type": "media"
+        }
+      ]
+    },
+    {
+      "id": "SBY-2026-0427-006",
+      "input_ids": [
+        "ENV-2026-007"
+      ],
+      "event_type": "temuan_lapangan",
+      "category": "Pencemaran Sungai / Limbah Industri",
+      "title": "Ronda sungai mendokumentasikan outlet industri menuju Kali Surabaya",
+      "date_start": "2026-06-10",
+      "date_end": "2026-06-10",
+      "time_local": "pengukuran lapangan pada pagi hingga siang",
+      "location_summary": "Wringinanom dan Driyorejo, Kabupaten Gresik, di hulu Kali Surabaya",
+      "location_points": [
+        {
+          "name": "PT Adiprima Suraprinta",
+          "address": "Desa Sumengko, Kecamatan Wringinanom, Gresik 61176",
+          "latitude": -7.399,
+          "longitude": 112.594,
+          "geojson": {
+            "type": "Point",
+            "coordinates": [
+              112.594,
+              -7.399
+            ]
+          },
+          "coordinate_precision": "perkiraan_area_industri",
+          "estimated_accuracy_m": 2500,
+          "coordinate_source": "alamat resmi perusahaan; koordinat pusat area diperkirakan",
+          "coordinate_note": "Koordinat outlet pembuangan tidak tersedia secara terbuka."
+        },
+        {
+          "name": "PT Dayasa Aria Prima",
+          "address": "Jalan Raya Driyorejo KM 25, Gresik 61177",
+          "latitude": -7.365,
+          "longitude": 112.623,
+          "geojson": {
+            "type": "Point",
+            "coordinates": [
+              112.623,
+              -7.365
+            ]
+          },
+          "coordinate_precision": "perkiraan_area_industri",
+          "estimated_accuracy_m": 2500,
+          "coordinate_source": "alamat resmi perusahaan; koordinat pusat area diperkirakan",
+          "coordinate_note": "Koordinat outlet pembuangan tidak tersedia secara terbuka."
+        },
+        {
+          "name": "PT Daesang Ingredients Indonesia / Miwon",
+          "address": "Kecamatan Driyorejo, Kabupaten Gresik 61177",
+          "latitude": -7.365,
+          "longitude": 112.623,
+          "geojson": {
+            "type": "Point",
+            "coordinates": [
+              112.623,
+              -7.365
+            ]
+          },
+          "coordinate_precision": "perkiraan_area_industri",
+          "estimated_accuracy_m": 3000,
+          "coordinate_source": "alamat jaringan perusahaan; koordinat pusat kecamatan",
+          "coordinate_note": "Perlu verifikasi lapangan untuk titik outlet."
+        }
+      ],
+      "description": "Tim lapangan mendokumentasikan beberapa outlet industri yang bermuara ke sungai dan melakukan pengukuran kualitas air. Temuan berasal dari laporan komunitas dan belum diperlakukan sebagai penetapan pelanggaran hukum oleh instansi berwenang.",
+      "urgency": "Sedang",
+      "verification": {
+        "status": "verified_field_report_only",
+        "confidence": "sedang",
+        "notes": "Nama lokasi dan hasil pengamatan didukung laporan lapangan. Tidak ditemukan dokumen penegakan resmi yang menetapkan pelanggaran pada tanggal tersebut."
+      },
+      "sources": [
+        {
+          "publisher": "Titik Terang",
+          "title": "Ronda Sungai Temukan Deretan Outlet Industri ke Kali Surabaya",
+          "url": "https://titikterang.co.id/ronda-sungai-ketika-temukan-deretan-gurita-industri-yang-bebaskan-limbahnya-mengalir-ke-kali-surabaya/",
+          "published_date": "2026-06-10",
+          "source_type": "community_media"
+        },
+        {
+          "publisher": "PT Adiprima Suraprinta",
+          "title": "Alamat Perusahaan",
+          "url": "https://www.adiprima.com/adiprima/",
+          "published_date": null,
+          "source_type": "official_company"
+        },
+        {
+          "publisher": "Fajar Paper",
+          "title": "Kontak PT Dayasa Aria Prima",
+          "url": "https://www.fajarpaper.com/contact-us/?lang=id",
+          "published_date": null,
+          "source_type": "official_company"
+        }
+      ]
+    },
+    {
+      "id": "SBY-2026-0427-007",
+      "input_ids": [
+        "ENV-2026-008"
+      ],
+      "event_type": "temuan_lapangan",
+      "category": "Pencemaran Sungai / Kualitas Air",
+      "title": "Sampling sembilan titik menemukan amonia 34,1 ppm pada salah satu efluen",
+      "date_start": "2026-07-10",
+      "date_end": "2026-07-10",
+      "time_local": "sekitar 08:50 dan 14:30 WIB",
+      "location_summary": "Tiga kawasan industri di Wringinanom dan Driyorejo, masing-masing diuji di hulu, efluen, dan hilir",
+      "location_points": [
+        {
+          "name": "Area PT Adiprima Suraprinta",
+          "address": "Desa Sumengko, Kecamatan Wringinanom, Gresik",
+          "latitude": -7.399,
+          "longitude": 112.594,
+          "geojson": {
+            "type": "Point",
+            "coordinates": [
+              112.594,
+              -7.399
+            ]
+          },
+          "coordinate_precision": "perkiraan_area_industri",
+          "estimated_accuracy_m": 2500,
+          "coordinate_source": "alamat resmi; koordinat area diperkirakan",
+          "coordinate_note": null
+        },
+        {
+          "name": "Area PT Dayasa Aria Prima",
+          "address": "Jalan Raya Driyorejo KM 25, Gresik",
+          "latitude": -7.365,
+          "longitude": 112.623,
+          "geojson": {
+            "type": "Point",
+            "coordinates": [
+              112.623,
+              -7.365
+            ]
+          },
+          "coordinate_precision": "perkiraan_area_industri",
+          "estimated_accuracy_m": 2500,
+          "coordinate_source": "alamat resmi; koordinat area diperkirakan",
+          "coordinate_note": null
+        },
+        {
+          "name": "Area PT Daesang / Miwon",
+          "address": "Kecamatan Driyorejo, Gresik",
+          "latitude": -7.365,
+          "longitude": 112.623,
+          "geojson": {
+            "type": "Point",
+            "coordinates": [
+              112.623,
+              -7.365
+            ]
+          },
+          "coordinate_precision": "perkiraan_area_industri",
+          "estimated_accuracy_m": 3000,
+          "coordinate_source": "alamat jaringan perusahaan; koordinat area diperkirakan",
+          "coordinate_note": null
+        }
+      ],
+      "description": "Praktik kerja lapangan mahasiswa bersama Ecoton menguji sembilan titik, yakni hulu, efluen, dan hilir pada tiga area industri. Salah satu titik efluen dilaporkan memiliki kadar amonia 34,1 ppm. Angka ini dicatat sebagai hasil sampling lapangan, bukan hasil uji laboratorium pemerintah.",
+      "urgency": "Tinggi",
+      "verification": {
+        "status": "verified_field_report_only",
+        "confidence": "sedang",
+        "notes": "Tanggal sampling, jumlah titik, dan nilai amonia didukung laporan lapangan. File awal menyebut pukul 08:30; sumber yang diperiksa mencantumkan sekitar 08:50."
+      },
+      "sources": [
+        {
+          "publisher": "Titik Terang",
+          "title": "Kali Surabaya, Sungai Tampak Biasa Ternyata Menyimpan Tekanan",
+          "url": "https://titikterang.co.id/kali-surabaya-sungai-tampak-biasa-ternyata-menyimpan-tekanan/",
+          "published_date": "2026-07-15",
+          "source_type": "community_media"
+        }
+      ]
+    },
+    {
+      "id": "SBY-2026-0427-008",
+      "input_ids": [
+        "ENV-2026-009"
+      ],
+      "event_type": "analisis_risiko",
+      "category": "Pencemaran Sungai / Ancaman Ekosistem",
+      "title": "Laporan risiko berulang ikan mati massal di Kali Surabaya",
+      "date_start": "2026-06-12",
+      "date_end": "2026-06-12",
+      "time_local": null,
+      "location_summary": "Kali Surabaya dan koridor sumber air baku menuju instalasi Ngagel",
+      "location_points": [
+        {
+          "name": "Kali Surabaya, Karangpilang",
+          "address": "Segmen Kali Surabaya di Karangpilang",
+          "latitude": -7.348,
+          "longitude": 112.7,
+          "geojson": {
+            "type": "Point",
+            "coordinates": [
+              112.7,
+              -7.348
+            ]
+          },
+          "coordinate_precision": "perkiraan_segmen_sungai",
+          "estimated_accuracy_m": 2000,
+          "coordinate_source": "geocoding manual",
+          "coordinate_note": null
+        },
+        {
+          "name": "Intake / Instalasi Ngagel",
+          "address": "Kawasan instalasi air Ngagel, Surabaya",
+          "latitude": -7.295,
+          "longitude": 112.738,
+          "geojson": {
+            "type": "Point",
+            "coordinates": [
+              112.738,
+              -7.295
+            ]
+          },
+          "coordinate_precision": "perkiraan_fasilitas",
+          "estimated_accuracy_m": 1200,
+          "coordinate_source": "geocoding manual",
+          "coordinate_note": null
+        }
+      ],
+      "description": "Publikasi 12 Juni membahas sejarah dan risiko berulang pencemaran serta kematian ikan pada musim kemarau. Entri ini bukan bukti terjadinya insiden ikan mati massal baru pada 2026.",
+      "urgency": "Tinggi",
+      "verification": {
+        "status": "verified_as_report_not_incident",
+        "confidence": "tinggi",
+        "notes": "Klasifikasi diubah dari insiden menjadi analisis risiko agar tidak menyatakan kejadian baru yang tidak didukung sumber."
+      },
+      "sources": [
+        {
+          "publisher": "Titik Terang",
+          "title": "Lima Dekade Tragedi Ikan Mati Massal di Kali Surabaya Masih Mengintai",
+          "url": "https://titikterang.co.id/lima-dekade-tragedi-ikan-mati-massal-di-kali-surabaya-masih-mengintai/",
+          "published_date": "2026-06-12",
+          "source_type": "community_media"
+        }
+      ]
+    },
+    {
+      "id": "SBY-2026-0427-009",
+      "input_ids": [
+        "ENV-2026-010"
+      ],
+      "event_type": "pemantauan",
+      "category": "Kualitas Udara",
+      "title": "DLH menyebut ISPU Surabaya kategori sedang pada pemantauan 12 sampai 13 Mei",
+      "date_start": "2026-05-12",
+      "date_end": "2026-05-13",
+      "time_local": "Tandes: 13 Mei pukul 21:00 WIB",
+      "location_summary": "Stasiun Kebonsari, Wonorejo, dan Tandes",
+      "location_points": [
+        {
+          "name": "Stasiun Kebonsari",
+          "address": "Kebonsari, Surabaya",
+          "latitude": -7.322,
+          "longitude": 112.724,
+          "geojson": {
+            "type": "Point",
+            "coordinates": [
+              112.724,
+              -7.322
+            ]
+          },
+          "coordinate_precision": "perkiraan_kawasan",
+          "estimated_accuracy_m": 1500,
+          "coordinate_source": "geocoding manual berbasis kawasan",
+          "coordinate_note": null
+        },
+        {
+          "name": "Stasiun Wonorejo",
+          "address": "Wonorejo, Surabaya",
+          "latitude": -7.312,
+          "longitude": 112.809,
+          "geojson": {
+            "type": "Point",
+            "coordinates": [
+              112.809,
+              -7.312
+            ]
+          },
+          "coordinate_precision": "perkiraan_kawasan",
+          "estimated_accuracy_m": 1800,
+          "coordinate_source": "geocoding manual berbasis kawasan",
+          "coordinate_note": null
+        },
+        {
+          "name": "Stasiun Tandes",
+          "address": "Tandes, Surabaya",
+          "latitude": -7.264,
+          "longitude": 112.687,
+          "geojson": {
+            "type": "Point",
+            "coordinates": [
+              112.687,
+              -7.264
+            ]
+          },
+          "coordinate_precision": "perkiraan_kawasan",
+          "estimated_accuracy_m": 1800,
+          "coordinate_source": "geocoding manual berbasis kawasan",
+          "coordinate_note": null
+        }
+      ],
+      "description": "DLH Surabaya menyampaikan nilai ISPU pada stasiun pemantauan masih dalam kategori sedang. Pada Tandes, nilai 79 pada 13 Mei pukul 21.00 WIB dengan PM2.5 sebagai parameter kritis. Perbandingan dengan AQI US tidak boleh dilakukan langsung tanpa memperhatikan perbedaan indeks dan metode.",
+      "urgency": "Sedang",
+      "verification": {
+        "status": "verified",
+        "confidence": "tinggi",
+        "notes": "Data media memuat pernyataan DLH dan rincian waktu serta parameter kritis."
+      },
+      "sources": [
+        {
+          "publisher": "IDN Times Jatim",
+          "title": "Surabaya Disebut Berpolusi, DLH: Fluktuatif Tapi Masih Terkendali",
+          "url": "https://jatim.idntimes.com/news/jawa-timur/surabaya-disebut-berpolusi-dlh-fluktuatif-tapi-masih-terkendali-00-hc4tp-26vc1v",
+          "published_date": "2026-05-14",
+          "source_type": "media"
+        },
+        {
+          "publisher": "WALHI",
+          "title": "Kualitas Udara 5 Kota Besar Indonesia Memburuk",
+          "url": "https://www.walhi.or.id/kualitas-udara-5-kota-besar-indonesia-memburuk-pemerintah-harus-segera-bertindak",
+          "published_date": "2026-05-13",
+          "source_type": "ngo"
+        }
+      ]
+    },
+    {
+      "id": "SBY-2026-0427-010",
+      "input_ids": [
+        "ENV-2026-011"
+      ],
+      "event_type": "insiden",
+      "category": "Sampah / Kebakaran TPA",
+      "title": "Kebakaran sekitar 900 meter persegi di Blok 1B TPA Benowo",
+      "date_start": "2026-07-19",
+      "date_end": "2026-07-19",
+      "time_local": "laporan 18:49; api utama padam 21:05; kondusif 23:58 WIB",
+      "location_summary": "Blok 1B sisi selatan TPA Benowo",
+      "location_points": [
+        {
+          "name": "TPA Benowo, Blok 1B sisi selatan",
+          "address": "Kawasan TPA Benowo, Surabaya",
+          "latitude": -7.22,
+          "longitude": 112.6265,
+          "geojson": {
+            "type": "Point",
+            "coordinates": [
+              112.6265,
+              -7.22
+            ]
+          },
+          "coordinate_precision": "perkiraan_centroid_berdasarkan_batas_resmi",
+          "estimated_accuracy_m": 700,
+          "coordinate_source": "perkiraan dari koordinat batas kawasan dalam dokumen Pemerintah Kota Surabaya",
+          "coordinate_note": "Bukan koordinat titik awal api hasil investigasi."
+        }
+      ],
+      "description": "Kebakaran meliputi sekitar 900 meter persegi. Penanganan melibatkan delapan unit pemadam, lima belas tangki air DLH, dan tujuh alat berat. Tidak ada korban jiwa yang dilaporkan. Penyebab belum dipastikan pada laporan yang diperiksa.",
+      "urgency": "Tinggi",
+      "verification": {
+        "status": "verified_with_correction",
+        "confidence": "tinggi",
+        "notes": "Dugaan flare suporter pada file awal tidak dipertahankan karena penyebab kebakaran belum dipastikan. Koordinat merupakan perkiraan kawasan."
+      },
+      "sources": [
+        {
+          "publisher": "Akurat Jatim",
+          "title": "Kebakaran TPA Benowo Surabaya Lahap 900 Meter Persegi, Penyebab Belum Dipastikan",
+          "url": "https://jatim.akurat.co/news/875714/kebakaran-tpa-benowo-surabaya-lahap-900-meter-persegi-lahan-penyebab-belum-dipastikan",
+          "published_date": "2026-07-22",
+          "source_type": "media"
+        },
+        {
+          "publisher": "Pemerintah Kota Surabaya",
+          "title": "Dokumen koordinat batas kawasan TPA Benowo",
+          "url": "https://pemerintahan.surabaya.go.id/basis-data/storage/regulations/8XcdrSK3eoyG09HqwdvSYhGluTwgVsirPN52jy9O.pdf",
+          "published_date": null,
+          "source_type": "official"
+        }
+      ]
+    },
+    {
+      "id": "SBY-2026-0427-011",
+      "input_ids": [
+        "ENV-2026-013"
+      ],
+      "event_type": "program_respons",
+      "category": "Sampah Plastik / Sungai",
+      "title": "Surabaya menjadi lokasi percontohan program Indonesia–Norwegia untuk sampah plastik sungai",
+      "date_start": "2026-06-05",
+      "date_end": "2026-06-05",
+      "time_local": null,
+      "location_summary": "Kota Surabaya dan koridor sungai yang menjadi lokasi program",
+      "location_points": [
+        {
+          "name": "Kota Surabaya",
+          "address": "Kota Surabaya",
+          "latitude": -7.2575,
+          "longitude": 112.7521,
+          "geojson": {
+            "type": "Point",
+            "coordinates": [
+              112.7521,
+              -7.2575
+            ]
+          },
+          "coordinate_precision": "centroid_kota_perkiraan",
+          "estimated_accuracy_m": 12000,
+          "coordinate_source": "centroid umum kota",
+          "coordinate_note": "Program bersifat lintas lokasi, sehingga titik hanya mewakili kota."
+        }
+      ],
+      "description": "Program kemitraan Indonesia–Norwegia menempatkan Surabaya sebagai percontohan pengendalian sampah plastik sungai. Entri ini adalah respons kebijakan dan program, bukan insiden pencemaran tunggal.",
+      "urgency": "Sedang",
+      "verification": {
+        "status": "verified",
+        "confidence": "tinggi",
+        "notes": "Program dikonfirmasi melalui kanal resmi Pemerintah Provinsi Jawa Timur."
+      },
+      "sources": [
+        {
+          "publisher": "Kominfo Jawa Timur",
+          "title": "Surabaya Jadi Percontohan Nasional untuk Program Indonesia–Norwegia",
+          "url": "https://kominfo.jatimprov.go.id/berita/surabaya-jadi-percontohan-nasional-untuk-program-indonesia-norwegia-angkat-satu-ton-sampah-plastik-dari-sungai-setiap-hari",
+          "published_date": "2026-06-05",
+          "source_type": "official"
+        }
+      ]
+    },
+    {
+      "id": "SBY-2026-0427-012",
+      "input_ids": [
+        "ENV-2026-017"
+      ],
+      "event_type": "edukasi_dan_kolaborasi",
+      "category": "Kesadaran Lingkungan",
+      "title": "Puncak Hari Lingkungan Hidup Sedunia tingkat Jawa Timur di UINSA",
+      "date_start": "2026-06-06",
+      "date_end": "2026-06-06",
+      "time_local": null,
+      "location_summary": "UIN Sunan Ampel Surabaya Kampus II, Gunung Anyar",
+      "location_points": [
+        {
+          "name": "UINSA Kampus II Gunung Anyar",
+          "address": "UIN Sunan Ampel Surabaya Kampus II, Gunung Anyar",
+          "latitude": -7.34415,
+          "longitude": 112.78459,
+          "geojson": {
+            "type": "Point",
+            "coordinates": [
+              112.78459,
+              -7.34415
+            ]
+          },
+          "coordinate_precision": "titik_terverifikasi",
+          "estimated_accuracy_m": 100,
+          "coordinate_source": "Mapcarta / OpenStreetMap",
+          "coordinate_note": null
+        }
+      ],
+      "description": "Kegiatan tingkat Jawa Timur membahas aksi iklim, kebersihan lingkungan, mangrove, dan ketahanan pangan. Karena bukan insiden, urgensinya ditempatkan sebagai konteks kebijakan dan edukasi.",
+      "urgency": "Rendah",
+      "verification": {
+        "status": "verified",
+        "confidence": "tinggi",
+        "notes": "Tanggal, tempat, dan kegiatan dikonfirmasi oleh situs resmi UINSA."
+      },
+      "sources": [
+        {
+          "publisher": "UIN Sunan Ampel Surabaya",
+          "title": "Puncak Peringatan Hari Lingkungan Hidup Sedunia",
+          "url": "https://uinsa.ac.id/hadiri-puncak-peringatan-hari-lingkungan-hidup-sedunia-rektor-uinsa-ajak-jadikan-kampus-ramah-lingkungan",
+          "published_date": "2026-06-06",
+          "source_type": "official"
+        },
+        {
+          "publisher": "Mapcarta",
+          "title": "UIN Sunan Ampel Surabaya II",
+          "url": "https://mapcarta.com/W1085781219",
+          "published_date": null,
+          "source_type": "map"
+        }
+      ]
+    },
+    {
+      "id": "SBY-2026-0427-013",
+      "input_ids": [
+        "ENV-2026-018"
+      ],
+      "event_type": "kolaborasi_riset",
+      "category": "Riset Lingkungan",
+      "title": "Pemkot Surabaya dan SIER menandatangani MoU riset keberlanjutan lingkungan",
+      "date_start": "2026-07-25",
+      "date_end": "2026-07-25",
+      "time_local": null,
+      "location_summary": "Kebun Raya Mangrove Surabaya",
+      "location_points": [
+        {
+          "name": "Kebun Raya Mangrove Surabaya",
+          "address": "Kebun Raya Mangrove Surabaya",
+          "latitude": -7.330556,
+          "longitude": 112.819444,
+          "geojson": {
+            "type": "Point",
+            "coordinates": [
+              112.819444,
+              -7.330556
+            ]
+          },
+          "coordinate_precision": "titik_terverifikasi",
+          "estimated_accuracy_m": 100,
+          "coordinate_source": "Koordinat yang dipublikasikan Universitas Airlangga",
+          "coordinate_note": null
+        }
+      ],
+      "description": "MoU mencakup sinergi riset, inovasi, dan program pembangunan berkelanjutan antara Pemerintah Kota Surabaya dan PT SIER.",
+      "urgency": "Rendah",
+      "verification": {
+        "status": "verified",
+        "confidence": "tinggi",
+        "notes": "Kegiatan dikonfirmasi ANTARA dan BeritaJatim."
+      },
+      "sources": [
+        {
+          "publisher": "ANTARA Jawa Timur",
+          "title": "SIER Dorong Riset dan Inovasi untuk Keberlanjutan Lingkungan",
+          "url": "https://jatim.antaranews.com/berita/1084821/sier-dorong-riset-dan-inovasi-untuk-keberlanjutan-lingkungan",
+          "published_date": "2026-07-25",
+          "source_type": "media"
+        },
+        {
+          "publisher": "BeritaJatim",
+          "title": "SIER–Pemkot Surabaya Dorong Riset dan Inovasi",
+          "url": "https://beritajatim.com/sier-pemkot-surabaya-dorong-riset-dan-inovasi-untuk-keberlanjutan-ekosistem-lingkungan",
+          "published_date": "2026-07-25",
+          "source_type": "media"
+        },
+        {
+          "publisher": "Universitas Airlangga",
+          "title": "Lokasi Kebun Raya Mangrove Surabaya",
+          "url": "https://vokasi.unair.ac.id/destinasi-wisata-baru-kebun-raya-mangrove-surabaya-mendongkrak-ekonomi-masyarakat-lokal/",
+          "published_date": null,
+          "source_type": "academic"
+        }
+      ]
+    },
+    {
+      "id": "SBY-2026-0427-014",
+      "input_ids": [
+        "LPU-2026-001",
+        "LPU-2026-002",
+        "LPU-2026-003",
+        "LPU-2026-004"
+      ],
+      "event_type": "insiden_infrastruktur",
+      "category": "Listrik / Traffic Light",
+      "title": "Pemadaman listrik 17–19 Juni berdampak pada traffic light dan layanan publik",
+      "date_start": "2026-06-17",
+      "date_end": "2026-06-19",
+      "time_local": "bervariasi menurut lokasi",
+      "location_summary": "Sejumlah persimpangan dan kawasan Surabaya; empat entri sumber digabung menjadi satu episode",
+      "location_points": [
+        {
+          "name": "Balongsari–Tandes",
+          "address": "Persimpangan Balongsari–Tandes",
+          "latitude": -7.2565,
+          "longitude": 112.6815,
+          "geojson": {
+            "type": "Point",
+            "coordinates": [
+              112.6815,
+              -7.2565
+            ]
+          },
+          "coordinate_precision": "perkiraan_simpang",
+          "estimated_accuracy_m": 700,
+          "coordinate_source": "geocoding manual",
+          "coordinate_note": null
+        },
+        {
+          "name": "Pucang Anom–Pucang Anom Timur",
+          "address": "Persimpangan Pucang Anom",
+          "latitude": -7.288,
+          "longitude": 112.7485,
+          "geojson": {
+            "type": "Point",
+            "coordinates": [
+              112.7485,
+              -7.288
+            ]
+          },
+          "coordinate_precision": "perkiraan_simpang",
+          "estimated_accuracy_m": 500,
+          "coordinate_source": "geocoding manual",
+          "coordinate_note": null
+        },
+        {
+          "name": "Diponegoro–Kartini",
+          "address": "Persimpangan Jalan Diponegoro dan Jalan Kartini",
+          "latitude": -7.281,
+          "longitude": 112.736,
+          "geojson": {
+            "type": "Point",
+            "coordinates": [
+              112.736,
+              -7.281
+            ]
+          },
+          "coordinate_precision": "perkiraan_simpang",
+          "estimated_accuracy_m": 500,
+          "coordinate_source": "geocoding manual",
+          "coordinate_note": null
+        },
+        {
+          "name": "Bubutan–Tembaan",
+          "address": "Kawasan Bubutan–Tembaan",
+          "latitude": -7.249,
+          "longitude": 112.7345,
+          "geojson": {
+            "type": "Point",
+            "coordinates": [
+              112.7345,
+              -7.249
+            ]
+          },
+          "coordinate_precision": "perkiraan_simpang",
+          "estimated_accuracy_m": 600,
+          "coordinate_source": "geocoding manual",
+          "coordinate_note": null
+        },
+        {
+          "name": "MERR–Kampus C",
+          "address": "Koridor MERR dekat Kampus C",
+          "latitude": -7.274,
+          "longitude": 112.781,
+          "geojson": {
+            "type": "Point",
+            "coordinates": [
+              112.781,
+              -7.274
+            ]
+          },
+          "coordinate_precision": "perkiraan_simpang",
+          "estimated_accuracy_m": 700,
+          "coordinate_source": "geocoding manual",
+          "coordinate_note": null
+        },
+        {
+          "name": "Menganti–Driyorejo",
+          "address": "Koridor Menganti menuju Driyorejo",
+          "latitude": -7.314,
+          "longitude": 112.646,
+          "geojson": {
+            "type": "Point",
+            "coordinates": [
+              112.646,
+              -7.314
+            ]
+          },
+          "coordinate_precision": "perkiraan_koridor",
+          "estimated_accuracy_m": 2000,
+          "coordinate_source": "geocoding manual",
+          "coordinate_note": null
+        },
+        {
+          "name": "Lakarsantri–Made",
+          "address": "Kawasan Lakarsantri–Made",
+          "latitude": -7.306,
+          "longitude": 112.638,
+          "geojson": {
+            "type": "Point",
+            "coordinates": [
+              112.638,
+              -7.306
+            ]
+          },
+          "coordinate_precision": "perkiraan_simpang",
+          "estimated_accuracy_m": 1200,
+          "coordinate_source": "geocoding manual",
+          "coordinate_note": null
+        },
+        {
+          "name": "Jalan Raya Menur",
+          "address": "Jalan Raya Menur arah Kalidami",
+          "latitude": -7.2865,
+          "longitude": 112.7595,
+          "geojson": {
+            "type": "Point",
+            "coordinates": [
+              112.7595,
+              -7.2865
+            ]
+          },
+          "coordinate_precision": "perkiraan_simpang",
+          "estimated_accuracy_m": 700,
+          "coordinate_source": "geocoding manual",
+          "coordinate_note": null
+        },
+        {
+          "name": "Perempatan Tuwowo",
+          "address": "Kawasan Tuwowo, Surabaya",
+          "latitude": -7.2355,
+          "longitude": 112.7755,
+          "geojson": {
+            "type": "Point",
+            "coordinates": [
+              112.7755,
+              -7.2355
+            ]
+          },
+          "coordinate_precision": "perkiraan_simpang",
+          "estimated_accuracy_m": 900,
+          "coordinate_source": "geocoding manual",
+          "coordinate_note": null
+        }
+      ],
+      "description": "Penurunan suplai listrik akibat kendala operasional pembangkit berdampak pada traffic light dan sejumlah layanan. Dishub mengaktifkan genset dan menempatkan petugas, tetapi kapasitas cadangan terbatas. Empat catatan awal digabung karena merujuk satu rangkaian pemadaman pada 17 sampai 19 Juni.",
+      "urgency": "Tinggi",
+      "verification": {
+        "status": "verified",
+        "confidence": "tinggi",
+        "notes": "Dampak pada traffic light dan respons Dishub dikonfirmasi beberapa media. Koordinat persimpangan bersifat perkiraan."
+      },
+      "sources": [
+        {
+          "publisher": "Detik Jatim",
+          "title": "7 Traffic Light hingga Perkantoran di Surabaya Padam",
+          "url": "https://www.detik.com/jatim/berita/d-8538269/7-traffic-light-hingga-perkantoran-di-surabaya-padam",
+          "published_date": "2026-06-19",
+          "source_type": "media"
+        },
+        {
+          "publisher": "Suara Surabaya",
+          "title": "Listrik Padam, Dishub Surabaya Aktifkan Genset dan Siagakan Petugas di TL",
+          "url": "https://www.suarasurabaya.net/kelanakota/2026/listrik-padam-dishub-surabaya-aktifkan-genset-dan-siagakan-petugas-di-tl/",
+          "published_date": "2026-06-19",
+          "source_type": "media"
+        },
+        {
+          "publisher": "KilasJatim",
+          "title": "Mati Lampu Bergilir Ganggu Layanan Publik dan Mobilitas Warga Surabaya",
+          "url": "https://kilasjatim.com/2026/06/19/mati-lampu-bergilir-ganggu-layanan-publik-dan-mobilitas-warga-surabaya/",
+          "published_date": "2026-06-19",
+          "source_type": "media"
+        }
+      ]
+    },
+    {
+      "id": "SBY-2026-0427-015",
+      "input_ids": [
+        "MCT-2026-002"
+      ],
+      "event_type": "kemacetan_dan_respons",
+      "category": "Kemacetan",
+      "title": "Kemacetan koridor Pakuwon Mall–HR Muhammad memicu evaluasi Dishub",
+      "date_start": "2026-07-15",
+      "date_end": "2026-07-17",
+      "time_local": "jam sibuk dan saat kepadatan meningkat",
+      "location_summary": "Pakuwon Mall hingga Jalan Mayjen HR Muhammad, Surabaya Barat",
+      "location_points": [
+        {
+          "name": "Pakuwon Mall Surabaya",
+          "address": "Pakuwon Mall, Jalan Puncak Indah Lontar, Surabaya",
+          "latitude": -7.28906,
+          "longitude": 112.67534,
+          "geojson": {
+            "type": "Point",
+            "coordinates": [
+              112.67534,
+              -7.28906
+            ]
+          },
+          "coordinate_precision": "titik_terverifikasi",
+          "estimated_accuracy_m": 100,
+          "coordinate_source": "Mapcarta / OpenStreetMap",
+          "coordinate_note": null
+        },
+        {
+          "name": "Koridor Jalan Mayjen HR Muhammad",
+          "address": "Jalan Mayjen HR Muhammad, Surabaya",
+          "latitude": -7.284,
+          "longitude": 112.688,
+          "geojson": {
+            "type": "Point",
+            "coordinates": [
+              112.688,
+              -7.284
+            ]
+          },
+          "coordinate_precision": "perkiraan_ruas",
+          "estimated_accuracy_m": 1500,
+          "coordinate_source": "geocoding manual berbasis koridor",
+          "coordinate_note": null
+        }
+      ],
+      "description": "Kepadatan pada koridor Surabaya Barat mendorong Wali Kota meminta Dishub memetakan titik rawan dan melakukan rekayasa lalu lintas secara proaktif. Tanggal 15 Juli digunakan sebagai awal kejadian yang dibahas, sedangkan laporan dan instruksi muncul pada 16 sampai 17 Juli.",
+      "urgency": "Sedang",
+      "verification": {
+        "status": "verified",
+        "confidence": "tinggi",
+        "notes": "Koridor dan respons pemerintah didukung RRI serta Radar Surabaya."
+      },
+      "sources": [
+        {
+          "publisher": "RRI Surabaya",
+          "title": "Wali Kota Eri Instruksikan Dishub Petakan dan Urai Titik Rawan Macet",
+          "url": "https://rri.co.id/surabaya/regional/2574145/wali-kota-eri-instruksikan-jajaran-dishub-petakan-dan-urai-titik-rawan-macet",
+          "published_date": "2026-07-16",
+          "source_type": "media"
+        },
+        {
+          "publisher": "Radar Surabaya",
+          "title": "Eri Cahyadi Ultimatum Dishub Surabaya",
+          "url": "https://radarsurabaya.jawapos.com/surabaya/2607170024/eri-cahyadi-ultimatum-dishub-surabaya-jangan-tunggu-telepon-wali-kota-baru-urai-kemacetan",
+          "published_date": "2026-07-17",
+          "source_type": "media"
+        },
+        {
+          "publisher": "Mapcarta",
+          "title": "Pakuwon Mall",
+          "url": "https://mapcarta.com/W678742186",
+          "published_date": null,
+          "source_type": "map"
+        }
+      ]
+    },
+    {
+      "id": "SBY-2026-0427-016",
+      "input_ids": [
+        "MCT-2026-004"
+      ],
+      "event_type": "kemacetan_event",
+      "category": "Kemacetan / Parkir",
+      "title": "Surabaya Vaganza menimbulkan kepadatan dan parkir di bahu jalan",
+      "date_start": "2026-05-16",
+      "date_end": "2026-05-16",
+      "time_local": "parade mulai 18:00 WIB; kepadatan berlangsung malam hari",
+      "location_summary": "Rute Tugu Pahlawan–Tunjungan–Grahadi–Balai Pemuda–Bambu Runcing",
+      "location_points": [
+        {
+          "name": "Tugu Pahlawan / Jalan Pahlawan",
+          "address": "Tugu Pahlawan, Surabaya",
+          "latitude": -7.2458,
+          "longitude": 112.7378,
+          "geojson": {
+            "type": "Point",
+            "coordinates": [
+              112.7378,
+              -7.2458
+            ]
+          },
+          "coordinate_precision": "perkiraan_landmark",
+          "estimated_accuracy_m": 250,
+          "coordinate_source": "geocoding manual berbasis landmark",
+          "coordinate_note": null
+        },
+        {
+          "name": "Jalan Tunjungan",
+          "address": "Jalan Tunjungan, Surabaya",
+          "latitude": -7.258,
+          "longitude": 112.739,
+          "geojson": {
+            "type": "Point",
+            "coordinates": [
+              112.739,
+              -7.258
+            ]
+          },
+          "coordinate_precision": "perkiraan_ruas",
+          "estimated_accuracy_m": 700,
+          "coordinate_source": "geocoding manual",
+          "coordinate_note": null
+        },
+        {
+          "name": "Gedung Negara Grahadi",
+          "address": "Jalan Gubernur Suryo, Surabaya",
+          "latitude": -7.2637,
+          "longitude": 112.742,
+          "geojson": {
+            "type": "Point",
+            "coordinates": [
+              112.742,
+              -7.2637
+            ]
+          },
+          "coordinate_precision": "perkiraan_landmark",
+          "estimated_accuracy_m": 300,
+          "coordinate_source": "geocoding manual",
+          "coordinate_note": null
+        },
+        {
+          "name": "Balai Pemuda",
+          "address": "Balai Pemuda, Surabaya",
+          "latitude": -7.2652,
+          "longitude": 112.7465,
+          "geojson": {
+            "type": "Point",
+            "coordinates": [
+              112.7465,
+              -7.2652
+            ]
+          },
+          "coordinate_precision": "perkiraan_landmark",
+          "estimated_accuracy_m": 300,
+          "coordinate_source": "geocoding manual",
+          "coordinate_note": null
+        },
+        {
+          "name": "Monumen Bambu Runcing",
+          "address": "Jalan Panglima Sudirman, Surabaya",
+          "latitude": -7.2679,
+          "longitude": 112.744,
+          "geojson": {
+            "type": "Point",
+            "coordinates": [
+              112.744,
+              -7.2679
+            ]
+          },
+          "coordinate_precision": "perkiraan_landmark",
+          "estimated_accuracy_m": 250,
+          "coordinate_source": "geocoding manual",
+          "coordinate_note": null
+        }
+      ],
+      "description": "Dishub menyiapkan 15 titik parkir dan rekayasa lalu lintas. Saat acara, lonjakan pengunjung menyebabkan kantong parkir penuh, sebagian kendaraan diparkir di bahu jalan, dan terjadi kepadatan di pusat kota.",
+      "urgency": "Rendah",
+      "verification": {
+        "status": "verified",
+        "confidence": "tinggi",
+        "notes": "Rute dan mitigasi dikonfirmasi Pemkot; dampak parkir dan kemacetan dilaporkan Detik."
+      },
+      "sources": [
+        {
+          "publisher": "Pemerintah Kota Surabaya",
+          "title": "Surabaya Vaganza 2026: Dishub Siapkan 15 Titik Parkir dan Rekayasa Lalu Lintas",
+          "url": "https://www.surabaya.go.id/id/berita/25159/surabaya-vaganza-2026-digelar-akhir-pekan-ini-dishub-siapkan-15-titik-parkir-dan-rekayasa-lalu-lintas",
+          "published_date": "2026-05-16",
+          "source_type": "official"
+        },
+        {
+          "publisher": "Detik Jatim",
+          "title": "Pengunjung Surabaya Vaganza Parkir Kendaraan hingga di Bahu Jalan",
+          "url": "https://www.detik.com/jatim/berita/d-8491566/full-pengunjung-surabaya-vaganza-parkir-kendaraan-hingga-di-bahu-jalan/amp",
+          "published_date": "2026-05-16",
+          "source_type": "media"
+        }
+      ]
+    }
+  ],
+  "excluded_records": [
+    {
+      "input_id": "ENV-2026-012",
+      "original_title": "Surabaya kehilangan predikat Adipura Kencana pasca kebakaran TPA",
+      "reason": "Tidak dimasukkan sebagai kejadian utama. Hasil evaluasi pengelolaan sampah dan status Sertifikat Menuju Kota Bersih diumumkan pada Februari 2026, di luar periode 27 April–27 Juli 2026. Hubungan sebab-akibat dengan kebakaran TPA pada 19 Juli juga tidak didukung sumber resmi.",
+      "correction_sources": [
+        {
+          "publisher": "Pemerintah Kota Surabaya",
+          "title": "Surabaya Raih Predikat Kota Terbaik Pertama dalam Pengelolaan Sampah",
+          "url": "https://www.surabaya.go.id/id/berita/24843/surabaya-raih-predikat-kota-terbaik-pertama-dalam-pengelolaan-sampah-se-indonesia-tahun-2025",
+          "published_date": "2026-02-26",
+          "source_type": "official"
+        },
+        {
+          "publisher": "Kementerian Lingkungan Hidup",
+          "title": "Evaluasi Pengelolaan Sampah 2025",
+          "url": "https://kemenlh.go.id/news/detail/evaluasi-pengelolaan-sampah-2025-surabaya-balikpapan-dan-ciamis-catat-kinerja-terbaik",
+          "published_date": "2026-02-26",
+          "source_type": "official"
+        }
+      ]
+    }
+  ]
+}

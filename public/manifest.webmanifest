@@ -1,0 +1,24 @@
+{
+  "name": "SUBALAP — Suara Warga, Kecerdasan Kota",
+  "short_name": "SUBALAP",
+  "description": "Platform laporan warga Surabaya tanpa login.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#071823",
+  "theme_color": "#0b9fab",
+  "lang": "id",
+  "icons": [
+    {
+      "src": "/brand/subalap-app-icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/brand/subalap-app-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
