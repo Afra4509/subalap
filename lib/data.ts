@@ -18,7 +18,11 @@ export function archiveSourceReport(id: number) {
   
   if (!deleted.includes(id)) {
     deleted.push(id)
-    fs.writeFileSync(DELETED_FILE, JSON.stringify(deleted))
+    try {
+      fs.writeFileSync(DELETED_FILE, JSON.stringify(deleted))
+    } catch (e) {
+      console.warn("Could not save to deleted-reports.json (read-only file system?)")
+    }
   }
 }
 
