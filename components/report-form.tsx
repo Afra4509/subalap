@@ -218,7 +218,10 @@ export function ReportForm() {
         lat: location?.lat,
         lng: location?.lng,
       })
-      if (!response.persisted) {
+      if ('error' in response) {
+        throw new Error(response.error as string)
+      }
+      if (!('persisted' in response) || !response.persisted) {
         try {
           saveLocalReport({
             id: response.reportId,
@@ -284,7 +287,7 @@ export function ReportForm() {
     )
   }
 
-  if (step === "result" && result) {
+  if (step === "result" && result && !('error' in result)) {
     const condition = CONDITION_META[result.analysis.condition]
     return (
       <Card className="p-5 sm:p-7">

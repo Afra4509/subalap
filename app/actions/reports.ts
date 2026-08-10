@@ -33,114 +33,115 @@ function mapToSupabaseCategory(cat: string): string {
 }
 
 export async function createReport(input: CreateReportInput) {
-  const categories: CategoryKey[] = [
-    "banjir",
-    "jalan_rusak",
-    "sampah",
-    "lampu_jalan",
-    "kemacetan",
-    "lingkungan",
-  ]
-  const name = input.name.trim()
-  const email = input.email.trim()
-  const description = input.description.trim()
-  const whatsapp = input.whatsapp?.trim() ?? ""
-  const mediaUrl = input.mediaUrl?.trim() || null
-  const validMedia =
-    mediaUrl === null ||
-    (mediaUrl.length <= 750_000 &&
-      /^data:image\/(?:jpeg|png|webp);base64,[a-zA-Z0-9+/=]+$/.test(mediaUrl))
-  const hasCoordinates = input.lat != null || input.lng != null
-  const validCoordinates =
-    !hasCoordinates ||
-    (Number.isFinite(input.lat) &&
-      Number.isFinite(input.lng) &&
-      isWithinSurabaya(input.lat!, input.lng!))
-  if (
-    name.length < 2 ||
-    name.length > 80 ||
-    !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) ||
-    email.length > 160 ||
-    description.length < 10 ||
-    description.length > 1500 ||
-    whatsapp.length > 24 ||
-    !categories.includes(input.category) ||
-    !SURABAYA_AREAS[input.area] ||
-    !validCoordinates ||
-    !validMedia
-  ) {
-    throw new Error("Data laporan tidak valid.")
-  }
+  try {
+    const categories: CategoryKey[] = [
+      "banjir",
+      "jalan_rusak",
+      "sampah",
+      "lampu_jalan",
+      "kemacetan",
+      "lingkungan",
+    ]
+    const name = input.name.trim()
+    const email = input.email.trim()
+    const description = input.description.trim()
+    const whatsapp = input.whatsapp?.trim() ?? ""
+    const mediaUrl = input.mediaUrl?.trim() || null
+    const validMedia =
+      mediaUrl === null ||
+      (mediaUrl.length <= 750_000 &&
+        /^data:image\/(?:jpeg|png|webp);base64,[a-zA-Z0-9+/=]+$/.test(mediaUrl))
+    const hasCoordinates = input.lat != null || input.lng != null
+    const validCoordinates =
+      !hasCoordinates ||
+      (Number.isFinite(input.lat) &&
+        Number.isFinite(input.lng) &&
+        isWithinSurabaya(input.lat!, input.lng!))
+    if (
+      name.length < 2 ||
+      name.length > 80 ||
+      !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) ||
+      email.length > 160 ||
+      description.length < 10 ||
+      description.length > 1500 ||
+      whatsapp.length > 24 ||
+      !categories.includes(input.category) ||
+      !SURABAYA_AREAS[input.area] ||
+      !validCoordinates ||
+      !validMedia
+    ) {
+      throw new Error("Data laporan tidak valid.")
+    }
 
-  // Simulated AI pipeline runs synchronously and returns structured output.
-  const analysis = analyzeReport({
-    description,
-    category: input.category,
-    area: input.area,
-    hasMedia: Boolean(input.mediaUrl),
-  })
-
-  const coords =
-    input.lat != null && input.lng != null
-      ? { lat: input.lat, lng: input.lng }
-      : (SURABAYA_AREAS[input.area] ?? { lat: -7.2575, lng: 112.7521 })
-
-  const supabase = await createClient()
-  const { data: { user } } = await supabase.auth.getUser()
-
-  if (!globalSupabase) {
-    throw new Error("Database belum dikonfigurasi.")
-  }
-
-  const images = mediaUrl ? [mediaUrl] : []
-
-  const insertData: any = {
+    // Simulated AI pipeline runs synchronously and returns structured output.
+    const analysis = analyzeReport({
       description,
-      category: mapToSupabaseCategory(analysis.category),
-      subcategory: input.area,
-      hashtags: analysis.hashtags,
-      latitude: coords.lat,
-      longitude: coords.lng,
-      location_name: input.area,
-      images,
-      status: 'new'
-  }
+      category: input.category,
+      area: input.area,
+      hasMedia: Boolean(input.mediaUrl),
+    })
 
-  if (user) {
-      insertData.user_id = user.id
-  } else {
-      // Allow anonymous users to use a default or null user_id if the DB allows it
-      // Otherwise Supabase will throw a constraint error which is what we want to surface.
-  }
+    const coords =
+      input.lat != null && input.lng != null
+        ? { lat: input.lat, lng: input.lng }
+        : (SURABAYA_AREAS[input.area] ?? { lat: -7.2575, lng: 112.7521 })
 
-  const { data, error } = await supabase
-    .from("reports")
-    .insert(insertData)
-    .select("id")
-    .single()
+    const supabase = await createClient()
+    const { data: { user } } = await supabase.auth.getUser()
 
-  if (error || !data) {
-    console.error("Supabase insert error:", error)
-    if (error?.message?.includes('not-null constraint')) {
-        throw new Error("Gagal: Database mengharuskan Anda login (user_id required). Silakan login atau ubah pengaturan Supabase Anda.")
+    if (!globalSupabase) {
+      throw new Error("Database belum dikonfigurasi.")
     }
-    if (error?.message?.includes('policy')) {
-        throw new Error("Gagal: Diblokir oleh aturan keamanan (RLS) Supabase. Izinkan insert anonim di dashboard Supabase.")
+
+    const images = mediaUrl ? [mediaUrl] : []
+
+    const insertData: any = {
+        description,
+        category: mapToSupabaseCategory(analysis.category),
+        subcategory: input.area,
+        hashtags: analysis.hashtags,
+        latitude: coords.lat,
+        longitude: coords.lng,
+        location_name: input.area,
+        images,
+        status: 'new'
     }
-    throw new Error(`Gagal menyimpan ke database: ${error?.message || 'Unknown error'}`)
-  }
 
-  const reportId = data.id
+    if (user) {
+        insertData.user_id = user.id
+    }
 
-  revalidatePath("/feed")
-  revalidatePath("/map")
-  revalidatePath("/trending")
-  revalidatePath("/dashboard")
+    const { data, error } = await supabase
+      .from("reports")
+      .insert(insertData)
+      .select("id")
+      .single()
 
-  return {
-    reportId,
-    analysis,
-    persisted: true,
+    if (error || !data) {
+      console.error("Supabase insert error:", error)
+      if (error?.message?.includes('not-null constraint')) {
+          throw new Error("Gagal: Database mengharuskan Anda login (user_id required). Silakan login atau ubah pengaturan Supabase Anda.")
+      }
+      if (error?.message?.includes('policy')) {
+          throw new Error("Gagal: Diblokir oleh aturan keamanan (RLS) Supabase. Izinkan insert anonim di dashboard Supabase.")
+      }
+      throw new Error(`Gagal menyimpan ke database: ${error?.message || 'Unknown error'}`)
+    }
+
+    const reportId = data.id
+
+    revalidatePath("/feed")
+    revalidatePath("/map")
+    revalidatePath("/trending")
+    revalidatePath("/dashboard")
+
+    return {
+      reportId,
+      analysis,
+      persisted: true,
+    }
+  } catch (error) {
+    return { error: error instanceof Error ? error.message : "Terjadi kesalahan pada server." }
   }
 }
 
