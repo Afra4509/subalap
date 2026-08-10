@@ -3,7 +3,10 @@ import { getPublicReports } from "@/lib/data"
 import { createClient } from "@/utils/supabase/server"
 import { revalidatePath } from "next/cache"
 import { Button } from "@/components/ui/button"
-import { LockKeyhole, LogOut, ShieldAlert, Trash2 } from "lucide-react"
+import { AdminDeleteButton } from "@/components/admin-delete-button"
+import { LockKeyhole, LogOut, ShieldAlert } from "lucide-react"
+import fs from "fs"
+import path from "path"
 
 export const dynamic = "force-dynamic"
 
@@ -51,12 +54,21 @@ export default async function FeraAdminPage() {
       archiveSourceReport(numId)
     } else {
       // Ini adalah report dari Supabase (laporan warga)
+      let serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY
+      if (!serviceRoleKey) {
+        try {
+          const envContent = fs.readFileSync(path.join(process.cwd(), ".env.local"), "utf-8")
+          const match = envContent.match(/SUPABASE_SERVICE_ROLE_KEY=(.+)/)
+          if (match) serviceRoleKey = match[1].trim()
+        } catch (e) {}
+      }
+
       let supabaseClient;
-      if (process.env.SUPABASE_SERVICE_ROLE_KEY) {
+      if (serviceRoleKey) {
          const { createClient: createAdminClient } = await import("@supabase/supabase-js")
          supabaseClient = createAdminClient(
            process.env.NEXT_PUBLIC_SUPABASE_URL!,
-           process.env.SUPABASE_SERVICE_ROLE_KEY
+           serviceRoleKey
          )
       } else {
          supabaseClient = await createClient()
@@ -170,14 +182,7 @@ export default async function FeraAdminPage() {
               {report.source_record_id && (
                 <input type="hidden" name="source_record_id" value={report.source_record_id} />
               )}
-              <Button
-                type="submit"
-                variant="destructive"
-                size="sm"
-                className="w-full gap-1.5 transition-all group-hover:bg-destructive/90 sm:w-auto"
-              >
-                <Trash2 className="h-4 w-4" /> Hapus
-              </Button>
+              <AdminDeleteButton />
             </form>
           </div>
         ))}
