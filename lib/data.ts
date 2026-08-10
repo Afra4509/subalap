@@ -82,8 +82,11 @@ function mapCategory(cat: string): CategoryKey {
   return "lingkungan"
 }
 
+import { unstable_noStore as noStore } from "next/cache"
+
 // Public feed: private reporter fields are never selected.
 export async function getPublicReports(category?: string): Promise<PublicReport[]> {
+  noStore()
   const archivedIds = getArchivedSourceReports()
   
   const sourceReports =

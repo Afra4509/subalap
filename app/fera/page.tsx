@@ -43,8 +43,11 @@ export default async function FeraAdminPage() {
 
   async function deleteReport(formData: FormData) {
     "use server"
+    console.log("\n\n====== DELETE REPORT STARTED ======\n\n")
     const id = formData.get("id") as string
     const sourceRecordId = formData.get("source_record_id") as string
+    console.log({ id, sourceRecordId })
+    
     if (!id) return
     const numId = Number(id)
     
@@ -54,35 +57,50 @@ export default async function FeraAdminPage() {
       archiveSourceReport(numId)
     } else {
       // Ini adalah report dari Supabase (laporan warga)
-      let serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY
-      if (!serviceRoleKey) {
-        try {
-          const envContent = fs.readFileSync(path.join(process.cwd(), ".env.local"), "utf-8")
-          const match = envContent.match(/SUPABASE_SERVICE_ROLE_KEY=(.+)/)
-          if (match) serviceRoleKey = match[1].trim()
-        } catch (e) {}
-      }
-
-      let supabaseClient;
-      if (serviceRoleKey) {
-         const { createClient: createAdminClient } = await import("@supabase/supabase-js")
-         supabaseClient = createAdminClient(
-           process.env.NEXT_PUBLIC_SUPABASE_URL!,
-           serviceRoleKey
-         )
-      } else {
-         supabaseClient = await createClient()
-      }
-      
-      const targetId = sourceRecordId || id
-      
-      const { error } = await supabaseClient.from("reports").update({ is_archived: true }).eq("id", targetId)
-      if (error) {
-        console.error("Gagal menghapus di Supabase (kemungkinan RLS policy):", error)
-        const { error: deleteError } = await supabaseClient.from("reports").delete().eq("id", targetId)
-        if (deleteError) {
-           console.error("Gagal hard-delete di Supabase:", deleteError)
+      try {
+        let serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY
+        if (!serviceRoleKey) {
+          try {
+            const envContent = fs.readFileSync(path.join(process.cwd(), ".env.local"), "utf-8")
+            const match = envContent.match(/SUPABASE_SERVICE_ROLE_KEY=(.+)/)
+            if (match) serviceRoleKey = match[1].trim()
+          } catch (e) {}
         }
+
+        let supabaseClient;
+        if (serviceRoleKey) {
+           const { createClient: createAdminClient } = await import("@supabase/supabase-js")
+           supabaseClient = createAdminClient(
+             process.env.NEXT_PUBLIC_SUPABASE_URL!,
+             serviceRoleKey
+           )
+        } else {
+           supabaseClient = await createClient()
+        }
+        
+        const targetId = sourceRecordId || id
+        
+        const { error, data: updateData } = await supabaseClient.from("reports").update({ is_archived: true }).eq("id", targetId).select()
+        
+        fs.writeFileSync(path.join(process.cwd(), "DEBUG_VARS.txt"), JSON.stringify({
+           id,
+           sourceRecordId,
+           targetId,
+           serviceRoleKeyExists: !!serviceRoleKey,
+           error,
+           updateData
+        }, null, 2))
+        
+        if (error) {
+          console.error("Gagal menghapus di Supabase (kemungkinan RLS policy):", error)
+          const { error: deleteError } = await supabaseClient.from("reports").delete().eq("id", targetId)
+          if (deleteError) {
+             console.error("Gagal hard-delete di Supabase:", deleteError)
+          }
+        }
+      } catch (err: any) {
+        fs.writeFileSync(path.join(process.cwd(), "DEBUG_ERROR.txt"), err?.stack || err?.toString() || "Unknown error")
+        throw err
       }
     }
 
