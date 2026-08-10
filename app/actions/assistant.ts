@@ -58,7 +58,7 @@ ${feedData.length > 0 ? feedData : 'Belum ada laporan warga terbaru.'}`
 
     const apiUrl = process.env.AI_API_URL || "https://api.groq.com/openai/v1/chat/completions"
     const apiKey = process.env.AI_API_KEY
-    const modelName = process.env.AI_MODEL_NAME || "llama3-8b-8192"
+    const modelName = process.env.AI_MODEL_NAME || "llama-3.1-8b-instant"
 
     if (!apiKey) {
       return { answer: "", sources, error: "API Key AI belum dikonfigurasi. Tambahkan AI_API_KEY di environment variables Vercel." }
