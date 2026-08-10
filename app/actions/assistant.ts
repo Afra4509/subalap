@@ -21,10 +21,10 @@ export async function askAssistant(query: string, localReports: any[] = []): Pro
     
     // Ambil laporan mentah terbaru dari warga (feeds) ditambah laporan lokal dari browser
     const serverFeeds = await getPublicReports("all")
-    const recentFeeds = [...localReports, ...serverFeeds].slice(0, 15)
+    const recentFeeds = [...localReports, ...serverFeeds].slice(0, 8)
     
     // Sort by impact to provide the most relevant data
-    const incidents = available.sort((a, b) => b.impact_score - a.impact_score).slice(0, 15)
+    const incidents = available.sort((a, b) => b.impact_score - a.impact_score).slice(0, 8)
 
     const sources = incidents.slice(0, 5).map((i) => ({
       area: i.area,
@@ -34,18 +34,14 @@ export async function askAssistant(query: string, localReports: any[] = []): Pro
     }))
 
     const contextData = incidents.map(i => {
-      return `- Area: ${i.area}
-        Isu: ${i.title} (Kategori: ${getCategory(i.category).label})
-        Dampak: ${i.impact_score}/100, Urgensi: ${i.avg_severity}/100
-        Jumlah laporan: ${i.report_count}
-        Deskripsi singkat: ${i.ai_summary || 'Tidak ada deskripsi'}`
-    }).join("\n\n")
+      const summary = (i.ai_summary || 'Tidak ada deskripsi').slice(0, 80)
+      return `- ${i.area}: ${i.title} | ${getCategory(i.category).label} | Dampak ${i.impact_score}/100 | ${i.report_count} laporan | ${summary}`
+    }).join("\n")
     
     const feedData = recentFeeds.map(f => {
-      return `- Area: ${f.area} | Kategori: ${getCategory(f.category).label}
-        Laporan: "${f.description}"
-        Status: ${f.ai_status} | Likes: ${f.likes}`
-    }).join("\n\n")
+      const desc = f.description.slice(0, 80)
+      return `- ${f.area} | ${getCategory(f.category).label}: "${desc}"`
+    }).join("\n")
 
     const systemPrompt = `Anda adalah Asisten AI Resmi untuk Kota Surabaya ("SUBALAP").
 Tugas Anda adalah menjawab pertanyaan warga mengenai kondisi kota, kemacetan, banjir, jalan rusak, dan masalah lingkungan.
@@ -86,7 +82,7 @@ ${feedData.length > 0 ? feedData : 'Belum ada laporan warga terbaru.'}`
             { role: "user", content: safeQuery }
           ],
           temperature: 0.3,
-          max_tokens: 500
+          max_tokens: 400
         }),
         signal: controller.signal
       })
