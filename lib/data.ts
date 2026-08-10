@@ -3,6 +3,33 @@ import { supabase } from "./db"
 import type { CategoryKey, Comment, Incident, PublicReport } from "./types"
 import { isWithinSurabaya } from "./surabaya-geo"
 import { SOURCE_INCIDENTS, SOURCE_REPORTS } from "./source-data"
+import fs from "fs"
+import path from "path"
+
+const DELETED_FILE = path.join(process.cwd(), "deleted-reports.json")
+
+export function archiveSourceReport(id: number) {
+  let deleted: number[] = []
+  try {
+    if (fs.existsSync(DELETED_FILE)) {
+      deleted = JSON.parse(fs.readFileSync(DELETED_FILE, "utf-8"))
+    }
+  } catch (e) {}
+  
+  if (!deleted.includes(id)) {
+    deleted.push(id)
+    fs.writeFileSync(DELETED_FILE, JSON.stringify(deleted))
+  }
+}
+
+function getArchivedSourceReports() {
+  try {
+    if (fs.existsSync(DELETED_FILE)) {
+      return new Set<number>(JSON.parse(fs.readFileSync(DELETED_FILE, "utf-8")))
+    }
+  } catch (e) {}
+  return new Set<number>()
+}
 
 function newestFirst<T extends { created_at: string }>(items: T[]) {
   return items.sort((a, b) => Date.parse(b.created_at) - Date.parse(a.created_at))
@@ -36,6 +63,7 @@ function mapSupabaseReport(row: Record<string, unknown>): PublicReport {
     likes: (row.upvotes_count as number) ?? 0,
     shares: 0,
     created_at: row.created_at as string,
+    source_record_id: row.id as string,
   }
 }
 
@@ -52,10 +80,12 @@ function mapCategory(cat: string): CategoryKey {
 
 // Public feed: private reporter fields are never selected.
 export async function getPublicReports(category?: string): Promise<PublicReport[]> {
+  const archivedIds = getArchivedSourceReports()
+  
   const sourceReports =
     category && category !== "all"
-      ? SOURCE_REPORTS.filter((report) => report.category === category)
-      : SOURCE_REPORTS
+      ? SOURCE_REPORTS.filter((report) => report.category === category && !archivedIds.has(report.id))
+      : SOURCE_REPORTS.filter((report) => !archivedIds.has(report.id))
 
   if (!supabase) return sourceReports
 
@@ -110,7 +140,8 @@ export async function getReportById(id: number): Promise<PublicReport | null> {
 
 export async function getIncidents(): Promise<Incident[]> {
   // incidents table doesn't exist in Supabase schema - use source data only
-  return SOURCE_INCIDENTS
+  const archivedIds = getArchivedSourceReports()
+  return SOURCE_INCIDENTS.filter((incident) => !archivedIds.has(incident.id + 100_000))
 }
 
 export async function getActiveIncidents(): Promise<Incident[]> {
