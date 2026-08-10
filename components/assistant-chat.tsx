@@ -27,13 +27,19 @@ export function AssistantChat() {
     setQuery(clean)
     setLoading(true)
     setError("")
+    setAnswer(null)
     try {
       let localReports = []
       if (typeof window !== "undefined") {
         const stored = localStorage.getItem("subalap-local-reports")
         if (stored) localReports = JSON.parse(stored)
       }
-      setAnswer(await askAssistant(clean, localReports))
+      const result = await askAssistant(clean, localReports)
+      if (result.error) {
+        setError(result.error)
+      } else {
+        setAnswer(result)
+      }
     } catch {
       setError("Asisten gagal memproses pertanyaan. Coba lagi.")
     } finally {
