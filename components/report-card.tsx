@@ -152,10 +152,14 @@ export function ReportCard({ report }: { report: PublicReport }) {
     setCommentPending(true)
     try {
       const created = await addComment(report.id, clean)
-      setComments((current) => [...current, created as Comment])
-      setCommentsLoaded(true)
-      setComment("")
-      toast.success("Komentar ditambahkan.")
+      if ('error' in created && created.error) {
+        toast.error(created.error as string)
+      } else {
+        setComments((current) => [...current, created as Comment])
+        setCommentsLoaded(true)
+        setComment("")
+        toast.success("Komentar ditambahkan.")
+      }
     } catch {
       toast.error("Komentar gagal dikirim.")
     } finally {

@@ -58,59 +58,67 @@ ${feedData.length > 0 ? feedData : 'Belum ada laporan warga terbaru.'}`
 
     const apiUrl = process.env.AI_API_URL || "https://api.groq.com/openai/v1/chat/completions"
     const apiKey = process.env.AI_API_KEY
-    const modelName = process.env.AI_MODEL_NAME || "llama-3.1-8b-instant"
+    const modelName = process.env.AI_MODEL_NAME || "llama3-8b-8192"
 
     if (!apiKey) {
       return { answer: "", sources, error: "API Key AI belum dikonfigurasi. Tambahkan AI_API_KEY di environment variables Vercel." }
     }
 
-    const controller = new AbortController()
-    const timeoutId = setTimeout(() => controller.abort(), 15000)
+    const body = JSON.stringify({
+      model: modelName,
+      messages: [
+        { role: "system", content: systemPrompt },
+        { role: "user", content: safeQuery }
+      ],
+      temperature: 0.3,
+      max_tokens: 400
+    })
 
-    let response: Response
-    try {
-      response = await fetch(apiUrl, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Authorization": `Bearer ${apiKey}`
-        },
-        body: JSON.stringify({
-          model: modelName,
-          messages: [
-            { role: "system", content: systemPrompt },
-            { role: "user", content: safeQuery }
-          ],
-          temperature: 0.3,
-          max_tokens: 400
-        }),
-        signal: controller.signal
-      })
-      clearTimeout(timeoutId)
-    } catch (fetchError: any) {
-      clearTimeout(timeoutId)
-      const isTimeout = fetchError?.name === "AbortError"
-      const msg = isTimeout
-        ? "Koneksi ke layanan AI timeout (>15 detik). Coba lagi."
-        : `Gagal menghubungi layanan AI (${apiUrl}): ${fetchError?.message ?? "network error"}`
-      console.error("AI fetch error:", fetchError)
-      return { answer: "", sources, error: msg }
+    const headers = {
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${apiKey}`
     }
 
-    if (!response.ok) {
-      const errText = await response.text()
-      console.error("AI API non-200:", response.status, errText)
-      return {
-        answer: "",
-        sources,
-        error: `Layanan AI menolak permintaan (HTTP ${response.status}). Periksa AI_API_KEY dan AI_MODEL_NAME di Vercel. Detail: ${errText.slice(0, 200)}`
+    // Attempt fetch with 1 retry on rate limit (429)
+    let lastError = ""
+    for (let attempt = 0; attempt < 2; attempt++) {
+      const controller = new AbortController()
+      const timeoutId = setTimeout(() => controller.abort(), 15000)
+
+      let response: Response
+      try {
+        response = await fetch(apiUrl, { method: "POST", headers, body, signal: controller.signal })
+        clearTimeout(timeoutId)
+      } catch (fetchError: any) {
+        clearTimeout(timeoutId)
+        const isTimeout = fetchError?.name === "AbortError"
+        lastError = isTimeout
+          ? "Koneksi ke layanan AI timeout (>15 detik). Coba lagi."
+          : `Gagal menghubungi layanan AI: ${fetchError?.message ?? "network error"}`
+        console.error("AI fetch error:", fetchError)
+        break // network errors won't improve with retry
       }
+
+      if (response.status === 429 && attempt === 0) {
+        // Rate limited — wait 2.5s then retry once
+        console.warn("AI rate limited (429), retrying in 2.5s...")
+        await new Promise(r => setTimeout(r, 2500))
+        continue
+      }
+
+      if (!response.ok) {
+        const errText = await response.text()
+        console.error("AI API error:", response.status, errText)
+        lastError = `Layanan AI error (HTTP ${response.status}). Periksa AI_API_KEY dan AI_MODEL_NAME. Detail: ${errText.slice(0, 200)}`
+        break
+      }
+
+      const data = await response.json()
+      const answer = data.choices?.[0]?.message?.content || "Maaf, asisten tidak memberikan jawaban."
+      return { answer, sources }
     }
 
-    const data = await response.json()
-    const answer = data.choices?.[0]?.message?.content || "Maaf, asisten tidak memberikan jawaban."
-
-    return { answer, sources }
+    return { answer: "", sources, error: lastError || "Gagal mendapatkan jawaban dari AI." }
   } catch (error: any) {
     console.error("Assistant unexpected error:", error)
     return {
