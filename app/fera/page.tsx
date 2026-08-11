@@ -5,8 +5,7 @@ import { revalidatePath } from "next/cache"
 import { Button } from "@/components/ui/button"
 import { AdminDeleteButton } from "@/components/admin-delete-button"
 import { LockKeyhole, LogOut, ShieldAlert } from "lucide-react"
-import fs from "fs"
-import path from "path"
+import { LockKeyhole, LogOut, ShieldAlert } from "lucide-react"
 
 export const dynamic = "force-dynamic"
 
@@ -59,13 +58,6 @@ export default async function FeraAdminPage() {
       // Ini adalah report dari Supabase (laporan warga)
       try {
         let serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY
-        if (!serviceRoleKey) {
-          try {
-            const envContent = fs.readFileSync(path.join(process.cwd(), ".env.local"), "utf-8")
-            const match = envContent.match(/SUPABASE_SERVICE_ROLE_KEY=(.+)/)
-            if (match) serviceRoleKey = match[1].trim()
-          } catch (e) {}
-        }
 
         let supabaseClient;
         if (serviceRoleKey) {
@@ -82,14 +74,7 @@ export default async function FeraAdminPage() {
         
         const { error, data: updateData } = await supabaseClient.from("reports").update({ is_archived: true }).eq("id", targetId).select()
         
-        fs.writeFileSync(path.join(process.cwd(), "DEBUG_VARS.txt"), JSON.stringify({
-           id,
-           sourceRecordId,
-           targetId,
-           serviceRoleKeyExists: !!serviceRoleKey,
-           error,
-           updateData
-        }, null, 2))
+
         
         if (error) {
           console.error("Gagal menghapus di Supabase (kemungkinan RLS policy):", error)
@@ -99,7 +84,7 @@ export default async function FeraAdminPage() {
           }
         }
       } catch (err: any) {
-        fs.writeFileSync(path.join(process.cwd(), "DEBUG_ERROR.txt"), err?.stack || err?.toString() || "Unknown error")
+        console.error("Error in deleteReport:", err)
         throw err
       }
     }

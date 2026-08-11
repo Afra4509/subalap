@@ -235,10 +235,10 @@ function sourceStats(): CityStats {
     totalIncidents: SOURCE_INCIDENTS.length,
     openIncidents: SOURCE_INCIDENTS.filter((incident) => incident.status !== "resolved").length,
     resolvedIncidents: SOURCE_INCIDENTS.filter((incident) => incident.status === "resolved").length,
-    avgSeverity: Math.round(
+    avgSeverity: SOURCE_REPORTS.length > 0 ? Math.round(
       SOURCE_REPORTS.reduce((sum, report) => sum + report.severity_score, 0) /
         SOURCE_REPORTS.length,
-    ),
+    ) : 0,
     affectedUsers: 0,
     reportsToday: SOURCE_REPORTS.filter(
       (report) => Date.now() - Date.parse(report.created_at) < 24 * 60 * 60 * 1000,
